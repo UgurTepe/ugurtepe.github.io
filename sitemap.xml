@@ -1,40 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>https://ugurtepe.github.io/</loc>
   <lastmod>2024-04-02</lastmod>
-  <priority>1.00</priority>
 </url>
 <url>
   <loc>https://ugurtepe.github.io/index.html</loc>
   <lastmod>2024-04-02</lastmod>
-  <priority>1.00</priority>
 </url>
 <url>
   <loc>https://ugurtepe.github.io/posts.html</loc>
-  <lastmod>2024-04-02</lastmod>
-  <priority>0.65</priority>
+  <lastmod>2024-04-02</lastmod>+
 </url>
 <url>
   <loc>https://ugurtepe.github.io/knowledge.html</loc>
   <lastmod>2024-04-02</lastmod>
-  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://ugurtepe.github.io/projects.html</loc>
   <lastmod>2024-04-02</lastmod>
-  <priority>0.70</priority>
 </url>
 <url>
   <loc>https://ugurtepe.github.io/about.html</loc>
   <lastmod>2024-04-02</lastmod>
-  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ugurtepe.github.io/Bachelor_Thesis.pdf</loc>
   <lastmod>2024-04-02</lastmod>
-  <priority>0.80</priority>
 </url>
-
 </urlset>
