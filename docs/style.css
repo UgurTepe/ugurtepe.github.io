@@ -1,0 +1,104 @@
+/* PAGE BODY */
+body {
+    padding: 1em;
+    background-repeat: repeat;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-size: 12pt;
+    color: white;
+}
+
+/* TITLE */
+h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* HEADER */
+h2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* SUBHEADER */
+h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* images for IMAGE and LINKIMAGE */
+img {
+    margin-bottom: 0px;
+}
+
+/* LINK */
+.link {
+    color: rgb(146, 32, 156);
+    text-decoration: underline;
+}
+
+.link::before {
+    content: "";
+}
+
+.link::after {
+    content: "";
+}
+
+/* LINKIMAGE */
+.linkimage {
+    text-decoration: none;
+    background: none;
+}
+
+/* FOOTNOTE */
+.footnote
+{
+    font-size: 80%;
+}
+
+/* LISTITEM */
+.list_item
+{
+    margin-left: 1rem;
+}
+
+/* Spacing between titles, headers and images, and text */
+
+.small_separator {
+    height: 0.5rem;
+}
+
+/* Mid spacing above headers and below titles*/
+
+.mid_separator {
+    height: 1rem;
+}
+
+/* Big spacing above titles and headers*/
+
+.big_separator {
+    height: 2rem;
+}
+
+/* Styling for the note that mentions that the website was compiled with WebSCFL */
+.compilenote{
+    font-size: 10px;
+    text-align: center;
+    margin-top: 1rem;
+}
+/* Custom rainbow colored horizontal rule */
+hr {
+    border: 0;
+    height: 5px;
+    background: url('../images/line_rainbow.gif') repeat-x;
+    margin: 1rem 0;
+}
+/* --- User Defined Styling for Images --- */
+.img1 {
+    float: right;
+    width: 10%; /* Adjust the percentage as needed */
+}
+/* ... */
+/* ... */
+/* ... */
