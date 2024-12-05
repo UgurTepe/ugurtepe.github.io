@@ -6,7 +6,11 @@ _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
-
+images/
+include/
+other/
+src/
+scfl_build.py
 # Additional Ruby/bundler ignore for when you run: bundle install
 /vendor
 
