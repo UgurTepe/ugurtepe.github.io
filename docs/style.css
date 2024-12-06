@@ -30,6 +30,7 @@ h3 {
 img {
     margin-bottom: 0px;
 }
+
 /* PDF LINK */
 .pdf-link {
     color: rgb(146, 32, 156);
@@ -43,6 +44,7 @@ img {
 .pdf-link::after {
     content: "";
 }
+
 /* LINK */
 .link {
     color: rgb(146, 32, 156);
@@ -63,15 +65,23 @@ img {
     background: none;
 }
 
+.linkimage img {
+    transition: 0.3s ease-in-out;
+    /* Smooth transition effect with ease-in-out */
+}
+
+.linkimage img:hover {
+    content: url('images/cat_dead.png');
+    /* Change the image on hover */
+}
+
 /* FOOTNOTE */
-.footnote
-{
+.footnote {
     font-size: 80%;
 }
 
 /* LISTITEM */
-.list_item
-{
+.list_item {
     margin-left: 1rem;
 }
 
@@ -94,11 +104,12 @@ img {
 }
 
 /* Styling for the note that mentions that the website was compiled with WebSCFL */
-.compilenote{
+.compilenote {
     font-size: 10px;
     text-align: center;
     margin-top: 1rem;
 }
+
 /* Custom rainbow colored horizontal rule */
 hr {
     border: 0;
@@ -106,26 +117,35 @@ hr {
     background: url('images/line_rainbow.gif') repeat-x;
     margin: 1rem 0;
 }
+
 /* --- User Defined Styling for Images --- */
 /* Cat */
 .img1 {
     float: right;
-    width: 10%; /* Adjust the percentage as needed */
+    width: 10%;
+    /* Adjust the percentage as needed */
     margin-top: 1rem;
 }
+
 /* Plot: Middle */
 .img2 {
-    display: block;
-    margin: auto;
-    width: 500px; /* Set a fixed width */
-    height: auto; /* Maintain aspect ratio */
+    float: left;
+    margin: 1rem;
+    width: 500px;
+    /* Set a fixed width */
+    height: auto;
+    /* Maintain aspect ratio */
 }
+
 .img3 {
     float: left;
     margin: 1rem;
-    width: 650px; /* Set a fixed width */
-    height: auto; /* Maintain aspect ratio */
+    width: 650px;
+    /* Set a fixed width */
+    height: auto;
+    /* Maintain aspect ratio */
 }
+
 /* ... */
 /* ... */
 /* ... */
