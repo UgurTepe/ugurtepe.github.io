@@ -1,0 +1,39 @@
+<!-- Generated using Lartu's WebSCFL Builder -->
+<head>
+<title>Uğur Tepe's Personal Website</title>
+<meta name="description" content="About my bachelor thesis">
+<style>html{
+background-repeat: repeat;
+background-image: url("images/starfiel.gif");
+}</style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<center><a class='link' href='index.html' >Home</a> | <a class='link' href='about_thesis.html' >About Thesis</a> | <a class='link' href='code.html' >EBS Code</a></center>
+<hr>
+<div><a class='linkimage' href='https://w.wiki/5Dis' target=_blank><img src='images/cat.png' class='img1'></a></div>
+<h1>Details on EBS Code</h1>
+<div class='small_separator'></div>
+This is serves as a brief introduction to my implementation of the EBS algorithm, more details can be found on <a class='link' href='https://github.com/UgurTepe/EmpiricalBernsteinAlgorithm ; Implementation of the empirical Bernstein algorithm' target=_blank>GitHub<img src='images/external-link.png'></a>.
+<br>
+Below Python code for an examplatory use of EBS is show.
+We sample our random variables according to a uniform distribution U(0,1)
+<div><img src='images/code-snapshot.png' class='img3'</img></div>
+<br>
+<div class='small_separator'></div>
+The usage is simple:
+<li class='list_item'>Load the class</li>
+<li class='list_item'>Initialise the EBS class</li>
+<li class='list_item'>Feed samples into EBS till the while loop terminates &harr; EBS finished sampling</li>
+<li class='list_item'>Return the estimate</li>
+<br>
+Note that this version of EBS uses an <b>absolute</b> accuracy, which in contrast to an relative accuracy, handles random variables
+<br>
+with an &thickapprox; zero expectation value better.
+<br>
+<br>
+The main advantage of EBS in comaprison to the commonly used Höffdings inequality comes from the fact that EBS utilises empirical data
+<br>
+from the samples and is thus able to provide more thight bounds in certain cases.
+</body>
+</html>

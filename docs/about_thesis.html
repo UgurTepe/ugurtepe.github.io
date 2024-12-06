@@ -1,7 +1,7 @@
 <!-- Generated using Lartu's WebSCFL Builder -->
 <head>
 <title>Uğur Tepe's Personal Website</title>
-<meta name="description" content="About my bachelor thesis">
+<meta name="description" content="About my implementation of EBS">
 <style>html{
 background-repeat: repeat;
 background-image: url("images/starfiel.gif");
@@ -9,8 +9,9 @@ background-image: url("images/starfiel.gif");
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<center><a class='link' href='index.html' >Home</a> | <a class='link' href='about_thesis.html' >About Thesis</a></center>
+<center><a class='link' href='index.html' >Home</a> | <a class='link' href='about_thesis.html' >About Thesis</a> | <a class='link' href='code.html' >EBS Code</a></center>
 <hr>
+<div><a class='linkimage' href='https://w.wiki/5Dis' target=_blank><img src='images/cat.png' class='img1'></a></div>
 <h1>About my Thesis</h1>
 <div class='small_separator'></div>
 The title of my bachelor thesis was "Adaptively measuring quantum expectation values using the empirical Bernstein stopping rule".
@@ -18,5 +19,14 @@ The title of my bachelor thesis was "Adaptively measuring quantum expectation va
 We looked at an application of the <a class='link' href='images\about_thesis.html' >empirical Bernstein stopping rule</a> (EBS) in the context of quantum computing.
 <br>
 The goal was to explore a new method to estimate quantum expectation values with a required accuracy ε and confidence of 1-δ while minimizing the amount of shots needed.
+<br>
+<br>
+<div><img src='images/ebs_example.png' class='img2'</img></div>
+<div class='small_separator'></div>
+In the above figure we see the EBS algorithm compared against Höffdings inequality, in the context of measuring the ground state energy of NH<sub>3</sub>.
+We set the accuracy &epsilon; to the chemical accuracy, i.e. 0.0016 Hartee.
+This accuracy is choosen such that subsequent calculations still yield realistic chemical accuracies.
+Here EBS outpeforms, i.e., requires less samples for an estimate than Höffdings.
+<br>
 </body>
 </html>

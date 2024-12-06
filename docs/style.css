@@ -30,7 +30,19 @@ h3 {
 img {
     margin-bottom: 0px;
 }
+/* PDF LINK */
+.pdf-link {
+    color: rgb(146, 32, 156);
+    text-decoration: underline;
+}
 
+.pdf-link::before {
+    content: "";
+}
+
+.pdf-link::after {
+    content: "";
+}
 /* LINK */
 .link {
     color: rgb(146, 32, 156);
@@ -91,13 +103,28 @@ img {
 hr {
     border: 0;
     height: 5px;
-    background: url('images/bu.png') repeat-x;
+    background: url('images/line_rainbow.gif') repeat-x;
     margin: 1rem 0;
 }
 /* --- User Defined Styling for Images --- */
+/* Cat */
 .img1 {
     float: right;
     width: 10%; /* Adjust the percentage as needed */
+    margin-top: 1rem;
+}
+/* Plot: Middle */
+.img2 {
+    display: block;
+    margin: auto;
+    width: 500px; /* Set a fixed width */
+    height: auto; /* Maintain aspect ratio */
+}
+.img3 {
+    float: left;
+    margin: 1rem;
+    width: 650px; /* Set a fixed width */
+    height: auto; /* Maintain aspect ratio */
 }
 /* ... */
 /* ... */
