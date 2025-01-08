@@ -1,0 +1,53 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Uğur Tepe | About Me</title>
+    <meta name="description" content="This is the about me page of my website">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        html {
+            background-repeat: repeat;
+            background-image: url("images/starfiel.gif");
+        }
+    </style>
+</head>
+
+<body>
+    <center><a class='link' href='index.html'>Home</a> | <a class='link' href='about_thesis.html'>About Thesis</a> | <a
+            class='link' href='code.html'>EBS Code</a>| <a class='link' href='aboutme.html'>About Me</a></center>
+    <hr>
+    <div><a class="linkimage" href="https://w.wiki/5Dis" target="_blank"><img src="images/cat.png" class="img1"></a>
+    </div>
+    <h1>About me</h1>
+    <div class='small_separator'></div>
+    I am a master student at <a class='link' href='https://www.hhu.de/' target=_blank>Heinrich-Heine University<img
+            src='images/external-link.png'></a>, Düsseldorf Germany and I am interested in Quantum Information, Quantum Field Theory and Machine Learning.
+    <div class='big_separator'></div>
+    <div class="container">
+        <main>
+            <div style="display: flex; align-items: center;">
+                <img src="icons/mailbox.GIF">
+                <a><b>:</b></a>
+                <div style="margin-left: 10px;">
+                    <textarea id="copy-text">ugur.tepe@hhu.de</textarea><br>
+                    <button onclick="copyToClipboard()">Copy to Clipboard</button>
+                </div>
+                <div style="width: 20px;"></div>
+                <a>Visit my GitHub page here <b>:</b></a>
+                <div style="width: 10px;"></div>
+                <a href="https://github.com/UgurTepe" target="_blank"><img src="icons/github.png"></a>
+            </div>
+            <script>
+                function copyToClipboard() {
+                    var textarea = document.getElementById('copy-text');
+                    textarea.select();
+                    document.execCommand('copy');
+                }
+            </script>
+            <div style="display: flex; align-items: center; margin-top: 20px;">
+                
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
