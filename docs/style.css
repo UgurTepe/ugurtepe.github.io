@@ -33,8 +33,8 @@ img {
 
 /* PDF LINK */
 .pdf-link {
-    color: rgb(146, 32, 156);
-    text-decoration: underline;
+    color: rgb(253, 114, 0);
+    text-decoration: underline dashed;
 }
 
 .pdf-link::before {
@@ -47,10 +47,21 @@ img {
 
 /* LINK */
 .link {
-    color: rgb(146, 32, 156);
+    color: rgb(231, 0, 252);
     text-decoration: underline;
 }
 
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 .link::before {
     content: "";
 }
@@ -59,12 +70,14 @@ img {
     content: "";
 }
 
-.link:visited {
-    background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2), color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22));
-    background-image: gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2), color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22));
+.link:hover {
+    background-image: linear-gradient(45deg, #f22, #f2f, #22f, #2ff, #2f2, #ff2, #f22);
+    background-size: 200%;
     color: transparent;
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: gradient-animation 3s infinite linear;
 }
 
 /* LINKIMAGE */
