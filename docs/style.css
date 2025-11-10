@@ -5,7 +5,7 @@ body {
     font-family: 'Times New Roman', Times, serif;
     font-style: normal;
     font-size: 12pt;
-    color: white;
+    color: #F5F5DC;
 }
 
 /* TITLE */
@@ -34,7 +34,9 @@ img {
 /* PDF LINK */
 .pdf-link {
     color: rgb(253, 114, 0);
-    text-decoration: underline dashed;
+    text-decoration: underline dotted;
+    text-underline-offset: 2px; /* Adds margin between text and underline */
+    text-decoration-thickness: 2px; /* Optional: makes underline more visible */
 }
 
 .pdf-link::before {
@@ -49,6 +51,8 @@ img {
 .link {
     color: rgb(231, 0, 252);
     text-decoration: underline;
+    text-underline-offset: 2px; /* Adds margin between text and underline */
+    text-decoration-thickness: 1px; /* Optional: makes underline more visible */
 }
 
 @keyframes gradient-animation {
