@@ -1,7 +1,16 @@
+<!doctype html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Uğur Tepe | About Me</title>
-    <meta name="description" content="This is the about me page of my website">
+    <meta name="description" content="About Uğur Tepe, a physics master student at Heinrich-Heine University Düsseldorf working in condensed matter physics and topological quantum computing.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ugurtepe.github.io/aboutme.html">
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Uğur Tepe | About Me">
+    <meta property="og:description" content="About Uğur Tepe, a physics master student at Heinrich-Heine University Düsseldorf working in condensed matter physics and topological quantum computing.">
+    <meta property="og:url" content="https://ugurtepe.github.io/aboutme.html">
     <link rel="stylesheet" href="style.css">
     <style>
         html {
@@ -12,30 +21,33 @@
 </head>
 
 <body>
-    <center><a class='link' href='index.html'>Home</a> | <a class='link' href='about_thesis.html'>About Thesis</a> | <a
-            class='link' href='code.html'>EBS Code</a> | <a class='link' href='aboutme.html'>About Me</a></center>
+    <nav aria-label="Primary">
+        <center><a class='link' href='index.html'>Home</a> | <a class='link' href='about_thesis.html'>About Thesis</a> | <a
+                class='link' href='code.html'>EBS Code</a> | <a class='link' href='aboutme.html'>About Me</a></center>
+    </nav>
     <hr>
-    <div><a class="linkimage" href="https://w.wiki/5Dis" target="_blank"><img src="images/cat.png" class="img1"></a>
+    <main>
+    <div><a class="linkimage" href="https://w.wiki/5Dis" target="_blank" rel="noopener"><img src="images/cat.png" class="img1" alt="Cat illustration"></a>
     </div>
     <h1>About me</h1>
     <div class='small_separator'></div>
-    I am a master student at <a class='link' href='https://www.hhu.de/' target=_blank>Heinrich-Heine University<img
+    I am a master student at <a class='link' href='https://www.hhu.de/' target=_blank rel="noopener">Heinrich-Heine University<img
             src='images/external-link.png'></a>, Düsseldorf Germany and I am interested in Quantum Information,
     Topological Quantum Computing and Theoretical Condensed Matter.
     <br>
     <br>
     Currently I am doing my master's thesis in the group of <a class='link' href='https://www.tp4.hhu.de/'
-        target=_blank>Reinhold Egger<img src='images/external-link.png'></a> at <a class='link'
-        href='https://www.hhu.de/' target=_blank>Heinrich-Heine University<img src='images/external-link.png'></a>, on
-    topological quantum computing with a focus on <a class='link' href='https://w.wiki/E8R8' target='_blank'>Majorana
+        target=_blank rel="noopener">Reinhold Egger<img src='images/external-link.png'></a> at <a class='link'
+        href='https://www.hhu.de/' target=_blank rel="noopener">Heinrich-Heine University<img src='images/external-link.png'></a>, on
+    topological quantum computing with a focus on <a class='link' href='https://w.wiki/E8R8' target='_blank' rel="noopener">Majorana
         fermions<img src='images/external-link.png'></a>.
     <br>
     <br>
-    You can find my curriculum vitae <a class='pdf-link' href='files\CV_Academic.pdf' target='_blank'>here</a>!
+    You can find my curriculum vitae <a class='pdf-link' href='files/CV_Academic.pdf' target='_blank' rel="noopener">here</a>!
     <div class='big_separator'></div>
     <h2> Links </h2>
     <div class="container">
-        <main>
+        <div>
             <div style="display: flex; align-items: center;">
                 <img src="icons/mailbox.GIF">
                 <a><b>:</b></a>
@@ -46,11 +58,11 @@
                 <div style="width: 20px;"></div>
                 <a>Visit my GitHub page here <b>:</b></a>
                 <div style="width: 10px;"></div>
-                <a href="https://github.com/UgurTepe" target="_blank"><img src="icons/github.png"></a>
+                <a href="https://github.com/UgurTepe" target="_blank" rel="noopener"><img src="icons/github.png" alt="GitHub"></a>
                 <div style="width: 20px;"></div>
                 <a>Visit my Linkedin page here <b>:</b></a>
                 <div style="width: 10px;"></div>
-                <a href="https://linkedin.com/in/ugurtepephy" target="_blank"><img src="icons/linkedin.png"></a>
+                <a href="https://linkedin.com/in/ugurtepephy" target="_blank" rel="noopener"><img src="icons/linkedin.png" alt="LinkedIn"></a>
             </div>
             <script>
                 function copyToClipboard() {
@@ -59,11 +71,10 @@
                     document.execCommand('copy');
                 }
             </script>
-            <div style="display: flex; align-items: center; margin-top: 20px;">
-
-            </div>
-        </main>
+            <div style="display: flex; align-items: center; margin-top: 20px;"></div>
+        </div>
     </div>
+    </main>
 </body>
 
 </html>

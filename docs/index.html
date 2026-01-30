@@ -1,7 +1,20 @@
+<!doctype html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Uğur Tepe | Home</title>
-    <meta name="description" content="This is the homepage of my website">
+    <title>Uğur Tepe | Physics, Condensed Matter Physics and Topological Quantum Computing</title>
+    <meta name="description" content="Uğur Tepe's personal website with research interests, thesis work, publications, topological quantum computing and condensed matter physics.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ugurtepe.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Uğur Tepe | Physics, Condensed Matter Physics and Topological Quantum Computing">
+    <meta property="og:description" content="Research interests, thesis work, publications, topological quantum computing and condensed matter physics.">
+    <meta property="og:url" content="https://ugurtepe.github.io/">
+    <meta property="og:site_name" content="Uğur Tepe">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Uğur Tepe | Physics, Condensed Matter Physics and Topological Quantum Computing">
+    <meta name="twitter:description" content="Research interests, thesis work, publications, topological quantum computing and condensed matter physics.">
     <link rel="stylesheet" href="style.css">
     <style>
         html {
@@ -9,16 +22,37 @@
             background-image: url("images/starfiel.gif");
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Uğur Tepe",
+      "url": "https://ugurtepe.github.io/",
+      "jobTitle": "Physics Master Student",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "Heinrich-Heine University Düsseldorf",
+        "url": "https://www.hhu.de/"
+      },
+      "sameAs": [
+        "https://github.com/UgurTepe",
+        "https://linkedin.com/in/ugurtepephy"
+      ]
+    }
+    </script>
 </head>
 
 <body>
-    <center><a class='link' href='index.html'>Home</a> | <a class='link' href='about_thesis.html'>About Thesis</a> | <a
-            class='link' href='code.html'>EBS Code</a>| <a class='link' href='aboutme.html'>About Me</a></center>
+    <nav aria-label="Primary">
+        <center><a class='link' href='index.html'>Home</a> | <a class='link' href='about_thesis.html'>About Thesis</a> | <a
+                class='link' href='code.html'>EBS Code</a>| <a class='link' href='aboutme.html'>About Me</a></center>
+    </nav>
     <hr>
-    <div><a class="linkimage" href="https://w.wiki/5Dis" target="_blank"><img src="images/cat.png" class="img1"></a>
+    <main>
+    <div><a class="linkimage" href="https://w.wiki/5Dis" target="_blank" rel="noopener"><img src="images/cat.png" class="img1" alt="Cat illustration"></a>
         <h1>Uğur Tepe's Personal Website</h1>
         <div class='small_separator'></div>
-        Physics Master Student at <a class='link' href='https://www.hhu.de/' target=_blank>Heinrich-Heine University<img
+        Physics Master Student at <a class='link' href='https://www.hhu.de/' target=_blank rel="noopener">Heinrich-Heine University<img
                 src='images/external-link.png'></a>, Düsseldorf Germany
         <div class='big_separator'></div>
         <h2>Research Interests</h2>
@@ -28,9 +62,9 @@
         <div class='big_separator'></div>
         <h2>Talks/ Presentations</h2>
         <div class='small_separator'></div>
-        <li class='list_item'><a class="pdf-link" href="files\poster.pdf" target="_blank">Poster</a> for DPG Spring
+        <li class='list_item'><a class="pdf-link" href="files/poster.pdf" target="_blank" rel="noopener">Poster</a> for DPG Spring
             Meeting 2024</li>
-        <li class='list_item'><a class="pdf-link" href="files\seminar_thesis.pdf" target="_blank">Presentation</a> about
+        <li class='list_item'><a class="pdf-link" href="files/seminar_thesis.pdf" target="_blank" rel="noopener">Presentation</a> about
             my bachelor thesis
         </li>
         <div class='big_separator'></div>
@@ -39,16 +73,16 @@
             <li class='list_item'>Gresch, Alexander; <b>Tepe, Uğur</b>; Kliesch, Martin. <u>Reducing the sampling
                     complexity of energy estimation in quantum many-body systems using empirical variance
                     information</u>. <i>Journal of Chemical Theory and Computation</i> (2025). <a class='link'
-                    href='https://pubs.acs.org/doi/abs/10.1021/acs.jctc.5c00370' target="_blank">(Journal)<img
+                    href='https://pubs.acs.org/doi/abs/10.1021/acs.jctc.5c00370' target="_blank" rel="noopener">(Journal)<img
                     src='images/external-link.png'></a></li>
         </ol>
         <div class='small_separator'></div>
         <h2>Thesis</h2>
         <div class='small_separator'></div>
 
-        <li class='list_item'><a class='pdf-link' href='files\Bachelor_Thesis.pdf' target="_blank">Bachelor Thesis</a>
+        <li class='list_item'><a class='pdf-link' href='files/Bachelor_Thesis.pdf' target="_blank" rel="noopener">Bachelor Thesis</a>
             (Advisors: Alexander
-            Gresch and <a class='link' href='http://www.mkliesch.eu/index.html' target=_blank>Martin Kliesch<img
+            Gresch and <a class='link' href='http://www.mkliesch.eu/index.html' target=_blank rel="noopener">Martin Kliesch<img
                     src='images/external-link.png'></a>) more details can be found <a class='link'
                 href='about_thesis.html'>here</a>.</li>
 
@@ -56,13 +90,14 @@
         <h2>Code</h2>
         <div class='small_separator'></div>
         <li class='list_item'>Empirical Bernstein algorithm algorithm on <a class='link'
-                href='https://github.com/UgurTepe/EmpiricalBernsteinAlgorithm' target=_blank>GitHub<img
+                href='https://github.com/UgurTepe/EmpiricalBernsteinAlgorithm' target=_blank rel="noopener">GitHub<img
                     src='images/external-link.png'></a> </a><sup>[1]</sup></li>
         <div class='footnote' style="margin-top: 25px;">
             <div style="position: relative; width: 600px; height: 40px;">
                 <div style="position: absolute; bottom: 5px; background-color: rgb(8, 78, 29)">[1] Own Implementation of the empirical Bernstein algorithm</div>
             </div>
         </div>
+        </main>
 </body>
 
 </html>
