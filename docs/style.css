@@ -1,4 +1,5 @@
 /* PAGE BODY */
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
 * {
     box-sizing: border-box;
 }
@@ -9,7 +10,7 @@ body {
     background-repeat: repeat;
     background-image: url('images/starfiel.gif');
     background-color: #000;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
     font-style: normal;
     font-size: 12pt;
     line-height: 1.55;
@@ -258,6 +259,15 @@ textarea {
     .nav-links {
         gap: 0.35rem 0.75rem;
     }
+}
+.highlight-name{
+    color: #5cd118; /* warm red */
+
+    padding: 0px 0px;
+    border-radius: 4px;
+    font-weight: 700;
+    display: inline-block;
+    margin: 0 2px;
 }
 /* ... */
 /* ... */
