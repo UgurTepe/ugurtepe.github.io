@@ -1,11 +1,56 @@
 /* PAGE BODY */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    padding: 1em;
+    margin: 0;
+    padding: 1rem;
     background-repeat: repeat;
+    background-image: url('images/starfiel.gif');
+    background-color: #000;
     font-family: 'Times New Roman', Times, serif;
     font-style: normal;
     font-size: 12pt;
+    line-height: 1.55;
     color: #F5F5DC;
+}
+
+main {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flow-root;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.page-content {
+    padding-top: 0.5rem;
+}
+
+.section {
+    margin-top: 2rem;
+}
+
+ul,
+ol {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 1.5rem;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #ffea00;
+    outline-offset: 2px;
 }
 
 /* TITLE */
@@ -103,6 +148,14 @@ img {
 /* FOOTNOTE */
 .footnote {
     font-size: 80%;
+    max-width: 100%;
+}
+
+.footnote-box {
+    display: inline-block;
+    max-width: 100%;
+    padding: 0.25rem 0.5rem;
+    background-color: rgb(8, 78, 29);
 }
 
 /* LISTITEM */
@@ -147,8 +200,8 @@ hr {
 /* Cat */
 .img1 {
     float: right;
-    width: 10%;
-    /* Adjust the percentage as needed */
+    width: min(10rem, 28vw);
+    max-width: 100%;
     margin-top: 1rem;
 }
 
@@ -156,10 +209,8 @@ hr {
 .img2 {
     float: left;
     margin: 1rem;
-    width: 500px;
-    /* Set a fixed width */
+    width: min(500px, 100%);
     height: auto;
-    /* Maintain aspect ratio */
 }
 
 .icon {
@@ -173,10 +224,8 @@ hr {
 .img3 {
     float: left;
     margin: 1rem;
-    width: 650px;
-    /* Set a fixed width */
+    width: min(650px, 100%);
     height: auto;
-    /* Maintain aspect ratio */
 }
 
 .Rainbow {
@@ -191,6 +240,25 @@ textarea {
     height: 35px;
     resize: none;
   }
+
+@media (max-width: 720px) {
+    body {
+        padding: 0.75rem;
+    }
+
+    .img1,
+    .img2,
+    .img3 {
+        float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .nav-links {
+        gap: 0.35rem 0.75rem;
+    }
+}
 /* ... */
 /* ... */
 /* ... */

@@ -16,12 +16,6 @@
     <meta name="twitter:title" content="Uğur Tepe | Physics, Condensed Matter Physics and Topological Quantum Computing">
     <meta name="twitter:description" content="Research interests, thesis work, publications, topological quantum computing and condensed matter physics.">
     <link rel="stylesheet" href="style.css">
-    <style>
-        html {
-            background-repeat: repeat;
-            background-image: url("images/starfiel.gif");
-        }
-    </style>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -44,29 +38,34 @@
 
 <body>
     <nav aria-label="Primary">
-        <center><a class='link' href='index.html'>Home</a> | <a class='link' href='about_thesis.html'>About Thesis</a> | <a
-                class='link' href='code.html'>EBS Code</a>| <a class='link' href='aboutme.html'>About Me</a></center>
+        <div class="nav-links">
+            <a class='link' href='index.html'>Home</a>
+            <a class='link' href='about_thesis.html'>About Thesis</a>
+            <a class='link' href='code.html'>EBS Code</a>
+            <a class='link' href='aboutme.html'>About Me</a>
+        </div>
     </nav>
     <hr>
-    <main>
-    <div><a class="linkimage" href="https://w.wiki/5Dis" target="_blank" rel="noopener"><img src="images/cat.png" class="img1" alt="Cat illustration"></a>
+    <main class="page-content">
+    <div class="hero"><a class="linkimage" href="https://w.wiki/5Dis" target="_blank" rel="noopener"><img src="images/cat.png" class="img1" alt="Cat illustration"></a>
         <h1>Uğur Tepe's Personal Website</h1>
         <div class='small_separator'></div>
-        Physics Master Student at <a class='link' href='https://www.hhu.de/' target=_blank rel="noopener">Heinrich-Heine University<img
-                src='images/external-link.png'></a>, Düsseldorf Germany
+        <p>Physics Master Student at <a class='link' href='https://www.hhu.de/' target="_blank" rel="noopener">Heinrich-Heine University<img
+                src='images/external-link.png' alt=""></a>, Düsseldorf Germany</p>
         <div class='big_separator'></div>
         <h2>Research Interests</h2>
-        <li class='list_item'>Topological Quantum Computing</li>
-        <li class='list_item'>Quantum Information</li>
-        <li class='list_item'>Theoretical Condensed Matter</li>
+        <ul>
+            <li class='list_item'>Topological Quantum Computing</li>
+            <li class='list_item'>Quantum Information</li>
+            <li class='list_item'>Theoretical Condensed Matter</li>
+        </ul>
         <div class='big_separator'></div>
         <h2>Talks/ Presentations</h2>
         <div class='small_separator'></div>
-        <li class='list_item'><a class="pdf-link" href="files/poster.pdf" target="_blank" rel="noopener">Poster</a> for DPG Spring
-            Meeting 2024</li>
-        <li class='list_item'><a class="pdf-link" href="files/seminar_thesis.pdf" target="_blank" rel="noopener">Presentation</a> about
-            my bachelor thesis
-        </li>
+        <ul>
+            <li class='list_item'><a class="pdf-link" href="files/poster.pdf" target="_blank" rel="noopener">Poster</a> for DPG Spring Meeting 2024</li>
+            <li class='list_item'><a class="pdf-link" href="files/seminar_thesis.pdf" target="_blank" rel="noopener">Presentation</a> about my bachelor thesis</li>
+        </ul>
         <div class='big_separator'></div>
         <h2>Publications/ Preprints</h2>
         <ol>
@@ -74,27 +73,30 @@
                     complexity of energy estimation in quantum many-body systems using empirical variance
                     information</u>. <i>Journal of Chemical Theory and Computation</i> (2025). <a class='link'
                     href='https://pubs.acs.org/doi/abs/10.1021/acs.jctc.5c00370' target="_blank" rel="noopener">(Journal)<img
-                    src='images/external-link.png'></a></li>
+                    src='images/external-link.png' alt=""></a></li>
         </ol>
-        <div class='small_separator'></div>
+        <div class='section'></div>
         <h2>Thesis</h2>
         <div class='small_separator'></div>
-
-        <li class='list_item'><a class='pdf-link' href='files/Bachelor_Thesis.pdf' target="_blank" rel="noopener">Bachelor Thesis</a>
-            (Advisors: Alexander
-            Gresch and <a class='link' href='http://www.mkliesch.eu/index.html' target=_blank rel="noopener">Martin Kliesch<img
-                    src='images/external-link.png'></a>) more details can be found <a class='link'
-                href='about_thesis.html'>here</a>.</li>
+        <ul>
+            <li class='list_item'><a class='pdf-link' href='files/Bachelor_Thesis.pdf' target="_blank" rel="noopener">Bachelor Thesis</a>
+                (Advisors: Alexander
+                Gresch and <a class='link' href='http://www.mkliesch.eu/index.html' target="_blank" rel="noopener">Martin Kliesch<img
+                        src='images/external-link.png' alt=""></a>) more details can be found <a class='link'
+                    href='about_thesis.html'>here</a>.</li>
+        </ul>
 
         <div class='big_separator'></div>
         <h2>Code</h2>
         <div class='small_separator'></div>
-        <li class='list_item'>Empirical Bernstein algorithm algorithm on <a class='link'
-                href='https://github.com/UgurTepe/EmpiricalBernsteinAlgorithm' target=_blank rel="noopener">GitHub<img
-                    src='images/external-link.png'></a> </a><sup>[1]</sup></li>
+        <ul>
+            <li class='list_item'>Empirical Bernstein algorithm on <a class='link'
+                    href='https://github.com/UgurTepe/EmpiricalBernsteinAlgorithm' target="_blank" rel="noopener">GitHub<img
+                        src='images/external-link.png' alt=""></a><sup>[1]</sup></li>
+        </ul>
         <div class='footnote' style="margin-top: 25px;">
-            <div style="position: relative; width: 600px; height: 40px;">
-                <div style="position: absolute; bottom: 5px; background-color: rgb(8, 78, 29)">[1] Own Implementation of the empirical Bernstein algorithm</div>
+            <div style="position: relative; max-width: 100%; min-height: 40px;">
+                <div class="footnote-box" style="position: absolute; bottom: 5px;">[1] Own implementation of the empirical Bernstein algorithm</div>
             </div>
         </div>
         </main>
