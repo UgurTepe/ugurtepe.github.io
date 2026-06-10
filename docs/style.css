@@ -32,7 +32,19 @@ main {
 }
 
 .page-content {
+    position: relative;
     padding-top: 0.5rem;
+}
+
+.page-content::before {
+    content: "hover over me";
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.75rem;
+    color: #48324e;
+    letter-spacing: 0.02em;
+    pointer-events: none;
 }
 
 .section {
