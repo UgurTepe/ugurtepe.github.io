@@ -171,6 +171,31 @@ img {
     background-color: rgb(8, 78, 29);
 }
 
+/* CODE BLOCK */
+.code-block {
+    clear: both;
+    margin: 1rem 0;
+}
+
+.code-block pre {
+    margin: 0;
+    border: 1px solid rgba(245, 245, 220, 0.25);
+    border-radius: 8px;
+    overflow: auto;
+    background: #11151f;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4) inset;
+}
+
+.code-block code {
+    font-family: Consolas, "Liberation Mono", Menlo, Monaco, monospace;
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.code-block .line-numbers .line-numbers-rows {
+    border-right-color: rgba(245, 245, 220, 0.18);
+}
+
 /* LISTITEM */
 .list_item {
     margin-left: 1rem;

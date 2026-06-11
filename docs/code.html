@@ -1,17 +1,38 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Uğur Tepe | Code</title>
-    <meta name="description" content="An overview of Uğur Tepe's empirical Bernstein stopping rule implementation and related code examples on GitHub.">
+    <meta name="description"
+        content="An overview of Uğur Tepe's empirical Bernstein stopping rule implementation and related code examples on GitHub.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://ugurtepe.github.io/code.html">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Uğur Tepe | Code">
-    <meta property="og:description" content="An overview of Uğur Tepe's empirical Bernstein stopping rule implementation and related code examples on GitHub.">
+    <meta property="og:description"
+        content="An overview of Uğur Tepe's empirical Bernstein stopping rule implementation and related code examples on GitHub.">
     <meta property="og:url" content="https://ugurtepe.github.io/code.html">
     <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)'], ['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -25,35 +46,49 @@
     </nav>
     <hr>
     <main class="page-content">
-    <div><a class='linkimage' href='https://w.wiki/5Dis' target="_blank" rel="noopener"><img src='images/cat.png' class='img1' alt="Cat illustration"></a></div>
-    <h1>Details on EBS Code</h1>
-    <div class='small_separator'></div>
-    This is serves as a brief introduction to my implementation of the EBS algorithm, more details can be found on <a
-        class='link' href='https://github.com/UgurTepe/EmpiricalBernsteinAlgorithm' target="_blank" rel="noopener">GitHub<img
-            src='images/external-link.png' alt=""></a>.
-    <br>
-    Below Python code for an examplatory use of EBS is show.
-    We sample our random variables according to a uniform distribution U(0,1)
-    <div class='small_separator'></div>
-    The usage is simple:
-    <ul>
-        <li class='list_item'>Load the class</li>
-        <li class='list_item'>Initialise the EBS class</li>
-        <li class='list_item'>Feed samples into EBS till the while loop terminates &harr; EBS finished sampling</li>
-        <li class='list_item'>Return the estimate</li>
-    </ul>
-    <br>
-    Note that this version of EBS uses an <b>absolute</b> accuracy, which in contrast to an relative accuracy, handles
-    random variables
-    <br>
-    with an &thickapprox; zero expectation value better.
-    <br>
-    <br>
-    The main advantage of EBS in comaprison to the commonly used Höffdings inequality comes from the fact that EBS
-    utilises empirical data
-    <br>
-    from the samples and is thus able to provide more thight bounds in certain cases.
-    <div><img src='images/code-snapshot.png' class='img3' alt="Code example screenshot"></div>
+        <div><a class='linkimage' href='https://w.wiki/5Dis' target="_blank" rel="noopener"><img src='images/cat.png'
+                    class='img1' alt="Cat illustration"></a></div>
+        <h1>Details on EBS Code</h1>
+        <div class='small_separator'></div>
+        This is serves as a brief introduction to my implementation of the EBS algorithm, more details can be found on
+        <a class='link' href='https://github.com/UgurTepe/EmpiricalBernsteinAlgorithm' target="_blank"
+            rel="noopener">GitHub<img src='images/external-link.png' alt=""></a>.
+        <br>
+        Below Python code for an examplatory use of EBS is show.
+        We sample our random variables according to a uniform distribution U(0,1)
+        <div class='small_separator'></div>
+        The usage is simple:
+        <ul>
+            <li class='list_item'>Load the class</li>
+            <li class='list_item'>Initialise the EBS class</li>
+            <li class='list_item'>Feed samples into EBS till the while loop terminates &harr; EBS finished sampling</li>
+            <li class='list_item'>Return the estimate</li>
+        </ul>
+
+        Note that this version of EBS uses an <b>absolute</b> accuracy, which in contrast to an relative accuracy, handles random variables
+        <br>
+        with an &thickapprox; zero expectation value better.
+        <br>
+        The main advantage of EBS in comaprison to the commonly used Höffdings inequality comes from the fact that EBS utilises empirical data from the samples and is thus able to provide more thight bounds in certain cases.
+        <div class="code-block">
+            <pre class="line-numbers"><code class="language-python">import numpy as np
+from algorithms import EBS
+samples = [0.12, 0.46, 0.33, 0.78, 0.51]
+a = 0
+b = 1
+delta = 0.1
+epsilon = 0.01
+
+ebs = EBS(epsilon=epsilon, delta=delta,range_of_rndvar=b-a)
+
+while ebs.cond_check():
+    ebs.add_sample(np.random.uniform(a,b)) 
+
+print("Estimated mean:", ebs.get_estimate())
+print("Number of samples taken:", round(ebs.get_num_samples()))
+>>> Estimate: 0.50
+>>> Number of samples taken: 14978
+        </div>
     </main>
 </body>
 

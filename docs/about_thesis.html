@@ -1,17 +1,33 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Uğur Tepe | Thesis</title>
-    <meta name="description" content="A summary of Uğur Tepe's bachelor thesis on adaptive quantum expectation value estimation using the empirical Bernstein stopping rule.">
+    <meta name="description"
+        content="A summary of Uğur Tepe's bachelor thesis on adaptive quantum expectation value estimation using the empirical Bernstein stopping rule.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://ugurtepe.github.io/about_thesis.html">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Uğur Tepe | Thesis">
-    <meta property="og:description" content="A summary of Uğur Tepe's bachelor thesis on adaptive quantum expectation value estimation using the empirical Bernstein stopping rule.">
+    <meta property="og:description"
+        content="A summary of Uğur Tepe's bachelor thesis on adaptive quantum expectation value estimation using the empirical Bernstein stopping rule.">
     <meta property="og:url" content="https://ugurtepe.github.io/about_thesis.html">
     <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)'], ['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
@@ -25,36 +41,43 @@
     </nav>
     <hr>
     <main class="page-content">
-    <div><a class='linkimage' href='https://w.wiki/5Dis' target="_blank" rel="noopener"><img src='images/cat.png' class='img1' alt="Cat illustration"></a></div>
-    <h1>About my Thesis</h1>
-    <div class='small_separator'></div>
-    The title of my bachelor thesis was "Adaptively measuring quantum expectation values using the empirical Bernstein
-    stopping rule".
-    <br>
-    We looked at an application of the <a class='pdf-link' href='files/ebs_mnih.pdf' target="_blank" rel="noopener" style="text-underline-offset: 4px;">empirical Bernstein stopping
-        rule</a><sup>[1]</sup> (EBS) in the context of quantum computing, referring to the footnote below.
-    <br>
-    The goal was to explore a new method to estimate quantum expectation values with a requireyd accuracy ε and
-    confidence of 1-δ while minimizing the amount of shots needed.
-    <br>
-    <br>
-    In the above figure we see the EBS algorithm compared against Höffdings inequality, in the context of measuring the
-    ground state energy of NH<sub>3</sub>.
-    <br>
-    We set the accuracy &epsilon; to the chemical accuracy, i.e. 0.0016 Hartee.
-    This accuracy is choosen such that subsequent calculations
-    <br>
-    still yield realistic chemical accuracies.
-    Here EBS outpeforms, i.e., requires less samples for an estimate than Höffdings.
-    <div><img src='images/ebs_example.png' class='img2' alt="Comparison of EBS and Hoeffding's inequality"></div>
-    <div class='small_separator'></div>
-    <br>
-    
-    <div class='footnote' style="margin-top: 70px;">
-            <div style="position: relative; max-width: 100%; min-height: 350px;">
+        <div><a class='linkimage' href='https://w.wiki/5Dis' target="_blank" rel="noopener"><img src='images/cat.png'
+                    class='img1' alt="Cat illustration"></a></div>
+        <h1>About my Thesis</h1>
+        <div class='small_separator'></div>
+        The title of my bachelor thesis was "Adaptively measuring quantum expectation values using the empirical
+        Bernstein
+        stopping rule".
+        <br>
+        We looked at an application of the <a class='pdf-link' href='files/ebs_mnih.pdf' target="_blank" rel="noopener"
+            style="text-underline-offset: 4px;">empirical Bernstein stopping
+            rule</a><sup>[1]</sup> (EBS) in the context of quantum computing, referring to the footnote below for the orginial paper.
+        <br>
+        $$|\overline{X}_{t}-\mu| \leq \overline{\sigma}_t\sqrt{\frac{2\ln{(3/\delta)}}{t}}+\frac{3R\ln{(3/\delta)}}{t}.$$
+        Where $\overline{X}_t$ is the empirical mean, $\mu$ is the true mean, $\overline{\sigma}_t$ is the empirical standard deviation, $R$ is the range of the random variable, $t$ is the number of samples taken and $\delta$ is the confidence parameter.
+        <br>
+        The goal was to explore a new method to estimate quantum expectation values with a requireyd accuracy $\epsilon$ and
+        confidence of $1 - \delta$ while minimizing the amount of shots needed.
+        <br>
+        In the below figure we see the EBS algorithm compared against Höffdings inequality, in the context of measuring
+        the
+        ground state energy of NH<sub>3</sub>.
+        <br>
+        We set the accuracy $\epsilon$ to the chemical accuracy, i.e. 0.0016 Hartee.
+        This accuracy is choosen such that subsequent calculations
+        <br>
+        still yield realistic chemical accuracies.
+        Here EBS outpeforms, i.e., requires less samples for an estimate than Höffdings.
+        <div><img src='images/ebs_example.png' class='img2' alt="Comparison of EBS and Hoeffding's inequality"></div>
+        <div class='small_separator'></div>
+        <br>
+        <div class='footnote' style="margin-top: 370px;">
+            <div style="position: relative; max-width: 100%; min-height: 40px;">
                 <div class="footnote-box" style="position: absolute; bottom: 5px;">[1] Mnih et al., 2008</div>
             </div>
-    </div>
+        </div>
+        </div>
     </main>
 </body>
+
 </html>
