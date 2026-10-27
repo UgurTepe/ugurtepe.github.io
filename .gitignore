@@ -4,3 +4,5 @@ other/
 src/
 scfl_build.py
 .vscode/
+*.swp
+*.swo

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Uğur Tepe | About Me</title>
+    <meta name="description" content="About Uğur Tepe, a master's student in physics at Heinrich-Heine University Düsseldorf working in condensed matter physics and topological quantum computing.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ugurtepe.github.io/aboutme.html">
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Uğur Tepe | About Me">
+    <meta property="og:description" content="About Uğur Tepe, a master's student in physics at Heinrich-Heine University Düsseldorf working in condensed matter physics and topological quantum computing.">
+    <meta property="og:url" content="https://ugurtepe.github.io/aboutme.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav aria-label="Primary">
+        <div class="nav-links">
+            <a class='link' href='index.html'>Home</a>
+            <a class='link' href='about_thesis.html'>About Thesis</a>
+            <a class='link' href='code.html'>EBS Code</a>
+            <a class='link' href='aboutme.html' aria-current="page">About Me</a>
+        </div>
+    </nav>
+    <hr>
+    <main class="page-content">
+    <a class="linkimage" href="https://w.wiki/5Dis" target="_blank" rel="noopener">
+        <span class="cat-hint" aria-hidden="true">hover over me</span>
+        <img src="images/cat.png" class="img1" alt="Schrödinger's cat" width="545" height="545">
+    </a>
+    <h1>About me</h1>
+    <div class='small_separator'></div>
+    <p>I am a master's student at <a class='link' href='https://www.hhu.de/' target="_blank" rel="noopener">Heinrich-Heine University<img
+            src='images/external-link.png' alt="" width="12" height="12"></a> in Düsseldorf, Germany. I am interested in quantum information,
+    topological quantum computing, and theoretical condensed matter physics.</p>
+    <p>I am currently doing my master's thesis in the group of <a class='link' href='https://www.tp4.hhu.de/'
+        target="_blank" rel="noopener">Reinhold Egger<img src='images/external-link.png' alt="" width="12" height="12"></a> at <a class='link'
+        href='https://www.hhu.de/' target="_blank" rel="noopener">Heinrich-Heine University<img src='images/external-link.png' alt="" width="12" height="12"></a>, on
+    topological quantum computing with a focus on <a class='link' href='https://w.wiki/E8R8' target='_blank' rel="noopener">Majorana
+        fermions<img src='images/external-link.png' alt="" width="12" height="12"></a>.</p>
+    <p>You can download my <a class='pdf-link' href='files/CV_Academic.pdf' target='_blank' rel="noopener">curriculum vitae</a>.</p>
+    <div class='big_separator'></div>
+    <h2>Links</h2>
+    <div class="contact-links">
+        <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcset="icons/mailbox.png">
+            <img src="icons/mailbox.GIF" alt="" width="44" height="51">
+        </picture>
+        <b>Email:</b>
+        <div class="email-contact">
+            <a class="link" id="email-address" href="mailto:ugur.tepe@hhu.de">ugur.tepe@hhu.de</a>
+            <button type="button" id="copy-email">Copy to Clipboard</button>
+            <span class="copy-status" id="copy-status" role="status"></span>
+        </div>
+        <span>Visit my GitHub page:</span>
+        <a href="https://github.com/UgurTepe" target="_blank" rel="noopener"><img src="icons/github.png" alt="GitHub" width="48" height="48"></a>
+        <span>Visit my LinkedIn page:</span>
+        <a href="https://linkedin.com/in/ugurtepephy" target="_blank" rel="noopener"><img src="icons/linkedin.png" alt="LinkedIn" width="48" height="48"></a>
+    </div>
+    <script>
+        document.getElementById('copy-email').addEventListener('click', async function () {
+            const email = document.getElementById('email-address');
+            const status = document.getElementById('copy-status');
+            this.disabled = true;
+            status.textContent = '';
+
+            try {
+                await navigator.clipboard.writeText(email.textContent.trim());
+                status.textContent = 'Email copied.';
+            } catch {
+                status.textContent = 'Select and copy the email address above.';
+                const selection = window.getSelection();
+                const range = document.createRange();
+                range.selectNodeContents(email);
+                selection?.removeAllRanges();
+                selection?.addRange(range);
+            } finally {
+                this.disabled = false;
+            }
+        });
+    </script>
+    </main>
+</body>
+
+</html>

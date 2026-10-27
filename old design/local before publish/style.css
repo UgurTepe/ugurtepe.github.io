@@ -1,0 +1,311 @@
+/* PAGE BODY */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 1rem;
+    background-repeat: repeat;
+    background-image: url('images/starfiel.gif');
+    background-color: #000;
+    font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-size: 12pt;
+    line-height: 1.55;
+    color: #F5F5DC;
+}
+
+main {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flow-root;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.page-content {
+    padding-top: 0.5rem;
+}
+
+.nav-links [aria-current="page"] {
+    color: #F5F5DC;
+    text-decoration-thickness: 2px;
+}
+
+.section {
+    margin-top: 2rem;
+}
+
+ul,
+ol {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 1.5rem;
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid #ffea00;
+    outline-offset: 2px;
+}
+
+/* TITLE */
+h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* HEADER */
+h2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* SUBHEADER */
+h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* images for IMAGE and LINKIMAGE */
+img {
+    margin-bottom: 0px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* PDF LINK */
+.pdf-link {
+    color: rgb(253, 114, 0);
+    text-decoration: underline dotted;
+    text-underline-offset: 2px; /* Adds margin between text and underline */
+    text-decoration-thickness: 2px; /* Optional: makes underline more visible */
+}
+
+/* LINK */
+.link {
+    color: rgb(231, 0, 252);
+    text-decoration: underline;
+    text-underline-offset: 2px; /* Adds margin between text and underline */
+    text-decoration-thickness: 1px; /* Optional: makes underline more visible */
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.link:hover {
+    background-image: linear-gradient(45deg, #f22, #f2f, #22f, #2ff, #2f2, #ff2, #f22);
+    background-size: 200%;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-animation 3s infinite linear;
+}
+
+/* LINKIMAGE */
+.linkimage {
+    position: relative;
+    display: block;
+    float: right;
+    width: min(10rem, 28vw);
+    max-width: 100%;
+    margin: 1rem 0 0 1rem;
+    text-decoration: none;
+    background: none;
+}
+
+.cat-hint {
+    display: none;
+}
+
+.linkimage:hover img,
+.linkimage:focus-visible img {
+    content: url('images/cat_dead.png');
+    /* Change the image on hover */
+}
+
+/* FOOTNOTE */
+.footnote {
+    clear: both;
+    margin: 1rem 0;
+    font-size: 80%;
+    max-width: 100%;
+}
+
+.footnote-box {
+    display: inline-block;
+    max-width: 100%;
+    padding: 0.25rem 0.5rem;
+    background-color: rgb(8, 78, 29);
+}
+
+/* CODE BLOCK */
+.code-block {
+    clear: both;
+    margin: 1rem 0;
+}
+
+.code-block pre {
+    margin: 0;
+    border: 1px solid rgba(245, 245, 220, 0.25);
+    border-radius: 8px;
+    overflow: auto;
+    background: #11151f;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4) inset;
+}
+
+.code-block code {
+    font-family: Consolas, "Liberation Mono", Menlo, Monaco, monospace;
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.code-block .line-numbers .line-numbers-rows {
+    border-right-color: rgba(245, 245, 220, 0.18);
+}
+
+/* LISTITEM */
+.list_item {
+    margin-left: 1rem;
+}
+
+/* Spacing between titles, headers and images, and text */
+
+.small_separator {
+    height: 0.5rem;
+}
+
+/* Big spacing above titles and headers*/
+
+.big_separator {
+    height: 2rem;
+}
+
+/* Custom rainbow colored horizontal rule */
+hr {
+    border: 0;
+    height: 5px;
+    background: url('images/line_rainbow.gif') repeat-x;
+    margin: 1rem 0;
+}
+
+/* --- User Defined Styling for Images --- */
+/* Cat */
+.img1 {
+    display: block;
+    width: 100%;
+}
+
+/* Plot: Middle */
+.thesis-figure {
+    clear: both;
+    max-width: 500px;
+    margin: 1rem;
+}
+
+.img2 {
+    display: block;
+    width: 100%;
+}
+
+.math-display {
+    clear: both;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.contact-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.email-contact {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.email-contact > a {
+    overflow-wrap: anywhere;
+}
+
+.email-contact button,
+.copy-status {
+    display: block;
+}
+
+.copy-status {
+    min-height: 1.55em;
+    max-width: 28ch;
+    font-size: 0.875rem;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 721px) {
+    .cat-hint {
+        display: block;
+        position: absolute;
+        bottom: 100%;
+        right: 0;
+        font-size: 0.75rem;
+        color: #c3a5c9;
+        letter-spacing: 0.02em;
+        pointer-events: none;
+    }
+}
+
+@media (max-width: 720px) {
+    body {
+        padding: 0.75rem;
+    }
+
+    .linkimage {
+        float: none;
+        margin: 1rem auto 0;
+    }
+
+    .thesis-figure {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .nav-links {
+        gap: 0.35rem 0.75rem;
+    }
+}
+.highlight-name {
+    color: #5cd118;
+    font-weight: 700;
+    display: inline-block;
+    margin: 0 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .link:hover {
+        animation: none;
+        background-image: none;
+        color: #ffea00;
+        -webkit-text-fill-color: currentColor;
+    }
+
+    hr {
+        background: linear-gradient(to right, #f22, #f2f, #22f, #2ff, #2f2, #ff2, #f22);
+    }
+}

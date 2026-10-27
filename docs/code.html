@@ -14,20 +14,10 @@
     <meta property="og:description"
         content="An overview of Uğur Tepe's empirical Bernstein stopping rule implementation and related code examples on GitHub.">
     <meta property="og:url" content="https://ugurtepe.github.io/code.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap">
     <link rel="stylesheet" href="style.css">
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['\\(', '\\)'], ['$', '$']],
-                displayMath: [['$$', '$$']],
-                processEscapes: true
-            },
-            options: {
-                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-            }
-        };
-    </script>
-    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-tomorrow.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
@@ -36,41 +26,62 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <nav aria-label="Primary">
         <div class="nav-links">
-            <a class='link' href='index.html'>Home</a>
-            <a class='link' href='about_thesis.html'>About Thesis</a>
-            <a class='link' href='code.html'>EBS Code</a>
-            <a class='link' href='aboutme.html'>About Me</a>
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="about_thesis.html">About Thesis</a>
+            <a class="nav-link" href="code.html" aria-current="page">EBS Code</a>
+            <a class="nav-link" href="aboutme.html">About Me</a>
         </div>
     </nav>
     <hr>
-    <main class="page-content">
-        <div><a class='linkimage' href='https://w.wiki/5Dis' target="_blank" rel="noopener"><img src='images/cat.png'
-                    class='img1' alt="Cat illustration"></a></div>
+    <main class="page-content" id="main-content">
+        <header class="page-intro">
+        <a class="linkimage" href="https://w.wiki/5Dis" target="_blank" rel="noopener" aria-describedby="cat-equation">
+            <img src="images/cat.png" class="img1 cat-unmeasured" alt="Schrödinger's cat in a superposition" width="545" height="545">
+            <img src="images/cat_dead.png" class="img1 cat-measured" alt="The measured cat in the dead state" width="545" height="545">
+            <span class="cat-equation" id="cat-equation">
+                <span class="cat-unmeasured">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" aria-label="Psi equals the sum of alive and dead, divided by the square root of two">
+                        <mrow>
+                            <mo stretchy="false">|</mo><mi>ψ</mi><mo stretchy="false">⟩</mo><mo>=</mo>
+                            <mfrac>
+                                <mrow><mo stretchy="false">|</mo><mtext>alive</mtext><mo stretchy="false">⟩</mo><mo>+</mo><mo stretchy="false">|</mo><mtext>dead</mtext><mo stretchy="false">⟩</mo></mrow>
+                                <msqrt><mn>2</mn></msqrt>
+                            </mfrac>
+                        </mrow>
+                    </math>
+                </span>
+                <span class="cat-measured">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" aria-label="After measurement, psi equals the dead state">
+                        <mrow><mo stretchy="false">|</mo><mi>ψ</mi><mo stretchy="false">⟩</mo><mo>=</mo><mo stretchy="false">|</mo><mtext>dead</mtext><mo stretchy="false">⟩</mo></mrow>
+                    </math>
+                </span>
+            </span>
+        </a>
         <h1>Details on EBS Code</h1>
-        <div class='small_separator'></div>
-        This is serves as a brief introduction to my implementation of the EBS algorithm, more details can be found on
-        <a class='link' href='https://github.com/UgurTepe/EmpiricalBernsteinAlgorithm' target="_blank"
-            rel="noopener">GitHub<img src='images/external-link.png' alt=""></a>.
-        <br>
-        Below Python code for an examplatory use of EBS is show.
-        We sample our random variables according to a uniform distribution U(0,1)
-        <div class='small_separator'></div>
-        The usage is simple:
+        <p class="intro-description">This is a brief introduction to my implementation of the EBS algorithm. More details are available on
+            <a class="link" href="https://github.com/UgurTepe/EmpiricalBernsteinAlgorithm" target="_blank"
+                rel="noopener">GitHub<img src="images/external-link.png" alt="" width="12" height="12"></a>.</p>
+        </header>
+        <section class="content-section article-content" aria-labelledby="implementation-heading">
+        <h2 id="implementation-heading">Implementation</h2>
+        <p>The Python example below samples a random variable from the uniform distribution U(0, 1).</p>
+        <p>The usage is simple:</p>
         <ul>
-            <li class='list_item'>Load the class</li>
+            <li class='list_item'>Import the class</li>
             <li class='list_item'>Initialise the EBS class</li>
-            <li class='list_item'>Feed samples into EBS till the while loop terminates &harr; EBS finished sampling</li>
+            <li class='list_item'>Feed samples into EBS until the stopping condition is met</li>
             <li class='list_item'>Return the estimate</li>
         </ul>
 
-        Note that this version of EBS uses an <b>absolute</b> accuracy, which in contrast to an relative accuracy, handles random variables
-        <br>
-        with an &thickapprox; zero expectation value better.
-        <br>
-        The main advantage of EBS in comaprison to the commonly used Höffdings inequality comes from the fact that EBS utilises empirical data from the samples and is thus able to provide more thight bounds in certain cases.
+        <p>This version of EBS uses an <b>absolute</b> accuracy target, which is better suited than a relative accuracy target
+            to random variables with an expectation value close to zero.</p>
+        <p>Unlike a sampling bound based on Hoeffding's inequality, EBS uses empirical information from the samples to
+            provide tighter bounds in certain cases.</p>
         <div class="code-block">
+            <p class="code-caption">Python · Example usage</p>
             <pre class="line-numbers"><code class="language-python">import numpy as np
 from algorithms import EBS
 a = 0
@@ -78,17 +89,22 @@ b = 1
 delta = 0.1
 epsilon = 0.01
 
-ebs = EBS(epsilon=epsilon, delta=delta,range_of_rndvar=b-a)
+ebs = EBS(epsilon=epsilon, delta=delta, range_of_rndvar=b - a)
 
 while ebs.cond_check():
-    ebs.add_sample(np.random.uniform(a,b)) 
+    ebs.add_sample(np.random.uniform(a, b))
 
 print("Estimated mean:", ebs.get_estimate())
 print("Number of samples taken:", round(ebs.get_num_samples()))
->>> Estimate: 0.50
->>> Number of samples taken: 14978
+# Example output (values vary between runs):
+# Estimated mean: 0.50
+# Number of samples taken: 14978</code></pre>
         </div>
+        </section>
     </main>
+    <footer class="site-footer">
+        Ugur Tepes personal website
+    </footer>
 </body>
 
 </html>
