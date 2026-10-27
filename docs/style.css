@@ -257,6 +257,10 @@ img { max-width: 100%; height: auto; }
 .linkimage:is(:hover, :focus-visible) .cat-measured { display: block; }
 .linkimage:is(:hover, :focus-visible) .cat-equation { color: var(--highlight); }
 .linkimage:is(:hover, :focus-visible) .img1 { opacity: 1; }
+/* Avoid an extra transparency layer when painting the PNG on touch screens. */
+@media (hover: none) {
+    .linkimage .img1 { opacity: 1; }
+}
 .article-content > p { color: #eee6c9; }
 .thesis-figure { clear: both; max-width: 559px; margin: 1.75rem auto; }
 .img2 { display: block; width: 100%; border-radius: 8px; }
