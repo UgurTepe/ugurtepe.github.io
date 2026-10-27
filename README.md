@@ -4,7 +4,6 @@ Live site: https://ugurtepe.github.io/
 
 - `docs/` contains the active website published by GitHub Pages from `main`.
 - `old design/` preserves the previous published design. Its `local before publish/` subfolder also keeps the local changes that existed before the redesign was promoted.
-- `concept/` retains the design preview used during the redesign. Make future website changes in `docs/`.
 
 ## Local preview
 
