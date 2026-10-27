@@ -177,6 +177,8 @@ li::marker { color: var(--muted); font-size: 0.8em; }
 .research-link { display: flex; align-items: center; gap: 0.65rem; min-width: 0; color: inherit; text-decoration: none; }
 /* Large, simple physics symbols, drawn entirely with CSS. */
 .research-icon { position: relative; display: inline-block; flex: 0 0 72px; width: 72px; height: 72px; color: var(--text); isolation: isolate; }
+.research-lattice { --research-accent: var(--reference); }
+.research-qubit { --research-accent: var(--highlight); }
 /* Three smooth worldlines, with gaps at the two undercrossings.
    Native CSS clipping paths draw each strand inside the 72px square. */
 .braid-strand { position: absolute; inset: 0; background: currentColor; }
