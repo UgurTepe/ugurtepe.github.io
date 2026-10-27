@@ -3,18 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Uğur Tepe | Topological Quantum Computing and Condensed Matter Physics</title>
-    <meta name="description" content="Uğur Tepe's personal website with research interests, thesis work, publications, topological quantum computing and condensed matter physics.">
+    <title>Uğur Tepe | Condensed Matter Physics &amp; Quantum Computing</title>
+    <meta name="description" content="Uğur Tepe is a physics master&#x27;s student at HHU Düsseldorf researching Majorana box qubits, topological quantum computing and condensed matter physics.">
+    <meta name="author" content="Uğur Tepe">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://ugurtepe.github.io/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Uğur Tepe | Topological Quantum Computing and Condensed Matter Physics">
-    <meta property="og:description" content="Research interests, thesis work, publications, topological quantum computing and condensed matter physics.">
+    <meta property="og:title" content="Uğur Tepe | Condensed Matter Physics &amp; Quantum Computing">
+    <meta property="og:description" content="Uğur Tepe is a physics master&#x27;s student at HHU Düsseldorf researching Majorana box qubits, topological quantum computing and condensed matter physics.">
     <meta property="og:url" content="https://ugurtepe.github.io/">
     <meta property="og:site_name" content="Uğur Tepe">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Uğur Tepe | Topological Quantum Computing and Condensed Matter Physics">
-    <meta name="twitter:description" content="Research interests, thesis work, publications, topological quantum computing and condensed matter physics.">
+    <meta name="twitter:title" content="Uğur Tepe | Condensed Matter Physics &amp; Quantum Computing">
+    <meta name="twitter:description" content="Uğur Tepe is a physics master&#x27;s student at HHU Düsseldorf researching Majorana box qubits, topological quantum computing and condensed matter physics.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap">
@@ -22,18 +23,62 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Uğur Tepe",
-      "url": "https://ugurtepe.github.io/",
-      "jobTitle": "Master's student in physics",
-      "affiliation": {
-        "@type": "CollegeOrUniversity",
-        "name": "Heinrich-Heine University Düsseldorf",
-        "url": "https://www.hhu.de/"
-      },
-      "sameAs": [
-        "https://github.com/UgurTepe",
-        "https://linkedin.com/in/ugurtepephy"
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://ugurtepe.github.io/#website",
+          "url": "https://ugurtepe.github.io/",
+          "name": "Uğur Tepe's Personal Website",
+          "alternateName": "Ugur Tepe's Personal Website",
+          "inLanguage": "en",
+          "publisher": {
+            "@id": "https://ugurtepe.github.io/#person"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://ugurtepe.github.io/#person",
+          "name": "Uğur Tepe",
+          "alternateName": [
+            "Ugur Tepe",
+            "UgurTepe"
+          ],
+          "url": "https://ugurtepe.github.io/",
+          "description": "Physics master's student at Heinrich-Heine University Düsseldorf, researching Majorana box qubits and topological quantum computing.",
+          "jobTitle": "Master's student in physics",
+          "affiliation": {
+            "@type": "CollegeOrUniversity",
+            "name": "Heinrich-Heine University Düsseldorf",
+            "url": "https://www.hhu.de/"
+          },
+          "knowsAbout": [
+            "Condensed matter physics",
+            "Topological quantum computing",
+            "Quantum information",
+            "Majorana box qubits"
+          ],
+          "sameAs": [
+            "https://github.com/UgurTepe",
+            "https://linkedin.com/in/ugurtepephy"
+          ],
+          "mainEntityOfPage": {
+            "@id": "https://ugurtepe.github.io/aboutme.html#profile"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://ugurtepe.github.io/#webpage",
+          "url": "https://ugurtepe.github.io/",
+          "name": "Uğur Tepe | Condensed Matter Physics & Quantum Computing",
+          "description": "Uğur Tepe is a physics master's student at HHU Düsseldorf researching Majorana box qubits, topological quantum computing and condensed matter physics.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://ugurtepe.github.io/#website"
+          },
+          "mainEntity": {
+            "@id": "https://ugurtepe.github.io/#person"
+          }
+        }
       ]
     }
     </script>
@@ -75,7 +120,7 @@
             </span>
         </a>
         <h1>Uğur Tepe's Personal Website</h1>
-        <p class="intro-description">Master's student in physics at <a class='link' href='https://www.hhu.de/' target="_blank" rel="noopener">Heinrich-Heine University<img
+        <p class="intro-description">I'm Uğur Tepe, a master's student in physics at <a class='link' href='https://www.hhu.de/' target="_blank" rel="noopener">Heinrich-Heine University<img
                 src='images/external-link.png' alt="" width="12" height="12"></a>, Düsseldorf, Germany.</p>
         <p class="intro-bio">My master's thesis focuses on topological quantum computing, specifically on so-called Majorana box qubits (MBQ). Previously, I studied ways to reduce the sample complexity in quantum algorithms.</p>
         </header>
