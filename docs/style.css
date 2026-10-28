@@ -309,8 +309,8 @@ img { max-width: 100%; height: auto; }
 /* The image and normalized state collapse together on hover or keyboard focus. */
 .linkimage { position: relative; display: block; float: right; width: 178px; margin: 0.15rem 1.25rem 1rem 2rem; color: var(--muted); text-decoration: none; }
 .img1 { display: block; width: 100%; max-width: 152px; margin-inline: auto; opacity: 0.88; }
-/* Frosted equation panels keep the starfield soft and the notation crisp. */
-.math-display {
+/* Frosted panels soften the starfield behind equations and the floating button. */
+.math-display, .back-to-top {
     border: 1px solid #ffffff33;
     border-radius: 12px;
     background:
@@ -346,8 +346,25 @@ img { max-width: 100%; height: auto; }
 .code-block .line-numbers .line-numbers-rows { border-right-color: var(--line); }
 .terminal-output pre { margin: 0; padding: 1rem 1.25rem; border: 1px solid var(--line); border-radius: 0 0 10px 10px; background: #000000; color: var(--name-highlight); overflow-x: auto; }
 .terminal-output samp { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875rem; line-height: 1.75; }
-.back-to-top { display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: fit-content; min-height: 44px; margin: 2rem auto 0; padding: 0.5rem 1rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--highlight); font-size: 0.875rem; text-decoration: none; transition: border-color 0.2s, background-color 0.2s; }
-.back-to-top:hover { border-color: var(--highlight); background: var(--surface-hover); }
+.back-to-top {
+    position: fixed;
+    left: 50%;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.5rem 1rem;
+    color: var(--text);
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+.back-to-top[hidden] { display: none; }
+.back-to-top:hover { border-color: #ffffff66; background-color: #242630d9; }
 .contact-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 1.5rem; }
 .contact-item { display: flex; align-items: flex-start; gap: 0.75rem; min-width: 0; max-width: 100%; }
 .contact-icon { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 51px; }
@@ -358,6 +375,7 @@ img { max-width: 100%; height: auto; }
 .email-copy-status { display: block; color: var(--muted); font-size: 0.75rem; line-height: 1.5; }
 .contact-label { display: block; margin-bottom: 0.1rem; color: var(--muted); font-size: 0.75rem; }
 .site-footer {
+    position: relative;
     display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.25rem 1rem;
     margin-top: 2rem; padding: 1rem 0 1.5rem;
     background: var(--divider-spectrum) top left / 200% 1px no-repeat;
