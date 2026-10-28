@@ -421,7 +421,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .research-list li + li { margin-top: 0.4rem; }
     .contact-links { grid-template-columns: 1fr; justify-items: start; gap: 1rem; }
     .contact-form-row { grid-template-columns: 1fr; }
-    .site-footer { margin-top: 1.5rem; }
+    .site-footer {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        text-align: center;
+    }
+    .footer-links { order: -1; justify-content: center; margin: 0; }
+    .clock-date, .clock-time { width: auto; }
 }
 @media (max-width: 420px) {
     body { padding-inline: 1rem; }
