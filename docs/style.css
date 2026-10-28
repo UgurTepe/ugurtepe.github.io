@@ -17,7 +17,7 @@
     --name-highlight: #83e556;
     --focus: #ffe782;
     --line: #38352f;
-    --divider-spectrum: linear-gradient(90deg, #ff65d5cc, #7896ffcc 17%, #52d5ffcc 34%, #b5e379cc 50%, #ffe16acc 66%, #ff9b4bcc 83%, #ff65d5cc);
+    --divider-spectrum: linear-gradient(90deg, #ff0505, #ff00e1 8.333%, #bb00ff 16.667%, #3300ff 25%, #0055ff 33.333%, #00ccff 41.667%, #00ffbb 50%, #77ff00 58.333%, #ccff00 66.667%, #ffee00 75%, #ffbb00 83.333%, #ff6600 91.667%, #ff0505);
     --divider-duration: 4s;
     --font: "PT Serif", Georgia, "Times New Roman", Times, serif;
 }
@@ -197,7 +197,7 @@ nav { padding-top: 1rem; }
 .nav-link[href="aboutme.html"] {
     --nav-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round'%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3Cpath d='M4 21v-2a8 8 0 0 1 16 0v2'/%3E%3C/svg%3E");
 }
-/* The original rainbow spirit, with a vivid, translucent spectrum. */
+/* The thin, smoothly flowing rainbow divider, with saturated colors. */
 body > hr {
     width: 100%; max-width: 960px; height: 2px; margin: 0.75rem auto 0; border: 0; border-radius: 2px;
     background: var(--divider-spectrum);
@@ -306,8 +306,8 @@ li::marker { color: var(--muted); font-size: 0.8em; }
 .publication-separator { margin-inline: 0.65rem; }
 .publication-authors { color: #ffffff; }
 img { max-width: 100%; height: auto; }
-/* The image and normalized state collapse together on hover or keyboard focus. */
-.linkimage { position: relative; display: block; float: right; width: 178px; margin: 0.15rem 1.25rem 1rem 2rem; color: var(--muted); text-decoration: none; }
+/* The image and normalized state collapse together for ten seconds after measurement. */
+.cat-interaction { position: relative; display: block; float: right; width: 178px; margin: 0.15rem 1.25rem 1rem 2rem; color: var(--muted); text-decoration: none; }
 .img1 { display: block; width: 100%; max-width: 152px; margin-inline: auto; opacity: 0.88; }
 /* Frosted panels soften the starfield behind equations and the floating button. */
 .math-display, .back-to-top {
@@ -322,14 +322,35 @@ img { max-width: 100%; height: auto; }
 }
 .cat-equation { display: grid; place-items: center; min-height: 2.75rem; margin-top: 0.65rem; color: #ffffff; text-align: center; }
 .cat-equation math { font-family: "Cambria Math", "STIX Two Math", serif; font-size: 0.875rem; white-space: nowrap; }
+.cat-hint {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    color: #c3bea566;
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    animation: cat-hint-reveal 600ms ease 5s forwards;
+}
+.cat-hint-touch { display: none; }
+@keyframes cat-hint-reveal {
+    to { opacity: 1; }
+}
+.cat-interaction.has-measured .cat-hint { display: none; }
 .cat-measured { display: none; }
-.linkimage:is(:hover, :focus-visible) .cat-unmeasured { display: none; }
-.linkimage:is(:hover, :focus-visible) .cat-measured { display: block; }
-.linkimage:is(:hover, :focus-visible) .cat-equation { color: var(--highlight); }
-.linkimage:is(:hover, :focus-visible) .img1 { opacity: 1; }
+.cat-interaction.is-measured .cat-unmeasured { display: none; }
+.cat-interaction.is-measured .cat-measured { display: block; }
+.cat-interaction.is-measured .cat-equation { color: var(--highlight); }
+.cat-interaction.is-measured .img1 { opacity: 1; }
 /* Avoid an extra transparency layer when painting the PNG on touch screens. */
 @media (hover: none) {
-    .linkimage .img1 { opacity: 1; }
+    .cat-hint-hover { display: none; }
+    .cat-hint-touch { display: inline; }
+    .cat-interaction .img1 { opacity: 1; }
 }
 .article-content > p { color: #eee6c9; }
 .thesis-figure { clear: both; max-width: 559px; margin: 1.75rem auto; }
@@ -412,7 +433,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
     body > hr { margin-top: 0.5rem; }
     .page-content { padding-top: 1.5rem; }
     .page-intro { padding-bottom: 0.75rem; }
-    .linkimage { width: 144px; margin: 0.4rem 0 1.5rem 1.25rem; }
+    .cat-interaction { width: 144px; margin: 0.4rem 0 1.5rem 1.25rem; }
     .img1 { max-width: 112px; }
     .cat-equation math { font-size: 0.8125rem; }
     .intro-description { font-size: 0.95rem; }
@@ -427,11 +448,12 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
 @media (max-width: 420px) {
     body { padding-inline: 1rem; }
     .nav-link { font-size: 0.8rem; }
-    .linkimage { width: 128px; margin-left: 0.85rem; }
+    .cat-interaction { width: 128px; margin-left: 0.85rem; }
     .img1 { max-width: 88px; }
     .cat-equation math { font-size: 0.75rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
     body > hr, .site-footer { animation: none; }
+    *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    .cat-hint { animation-duration: 0.01ms; }
 }

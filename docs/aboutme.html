@@ -28,8 +28,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap">
-    <link rel="stylesheet" href="style.css?v=39">
+    <link rel="stylesheet" href="style.css?v=51">
     <script defer src="back-to-top.js?v=1"></script>
+    <script defer src="cat.js?v=1"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -128,7 +129,7 @@
     <hr>
     <main class="page-content" id="main-content">
     <header class="page-intro">
-    <a class="linkimage" href="https://w.wiki/5Dis" target="_blank" rel="noopener" aria-describedby="cat-equation">
+    <div class="cat-interaction" tabindex="0" role="group" aria-label="Schrödinger's cat: hover or focus to measure" aria-describedby="cat-equation">
             <img src="images/cat.png?v=2" class="img1 cat-unmeasured" alt="Schrödinger's cat in a superposition" width="545" height="545">
             <img src="images/cat_dead.png" class="img1 cat-measured" alt="The measured cat in the dead state" width="545" height="545">
             <span class="cat-equation" id="cat-equation">
@@ -149,7 +150,8 @@
                     </math>
                 </span>
             </span>
-        </a>
+            <span class="cat-hint" aria-hidden="true"><span class="cat-hint-hover">hover over me</span><span class="cat-hint-touch">click me</span></span>
+        </div>
     <h1>About Uğur Tepe</h1>
     <p class="intro-description">I'm Uğur Tepe, a master's student in physics at <a class="link" href="https://www.hhu.de/" target="_blank" rel="noopener">Heinrich-Heine University Düsseldorf<img src="images/external-link.png" alt="" width="12" height="12"></a>. My interests lie in theoretical condensed matter physics and topological quantum computing.</p>
     <p>You can download my <a class='pdf-link' href='files/CV_Academic.pdf' target='_blank' rel="noopener">curriculum vitae</a>. <span class="file-meta">PDF · 110 kB</span></p>
@@ -189,6 +191,20 @@
             <div class="contact-details">
                 <span class="contact-label">LinkedIn</span>
                 <a class="link contact-value" href="https://linkedin.com/in/ugurtepephy" target="_blank" rel="noopener">Uğur Tepe<img src="images/external-link.png" alt="" width="12" height="12"></a>
+            </div>
+        </div>
+        <div class="contact-item">
+            <span class="contact-icon"><img src="icons/orcid.svg" alt="" width="44" height="44"></span>
+            <div class="contact-details">
+                <span class="contact-label">ORCID</span>
+                <a class="link contact-value" href="https://orcid.org/0009-0006-2486-6046" target="_blank" rel="noopener">0009-0006-2486-6046<img src="images/external-link.png" alt="" width="12" height="12"></a>
+            </div>
+        </div>
+        <div class="contact-item">
+            <span class="contact-icon"><img src="icons/google-scholar.svg" alt="" width="44" height="44"></span>
+            <div class="contact-details">
+                <span class="contact-label">Google Scholar</span>
+                <a class="link contact-value" href="https://scholar.google.com/citations?user=4BcqRzUAAAAJ&amp;hl=de" target="_blank" rel="noopener">Uğur Tepe<img src="images/external-link.png" alt="" width="12" height="12"></a>
             </div>
         </div>
         <div class="contact-item">
@@ -244,10 +260,12 @@
     </main>
     <footer class="site-footer">
         <span>Uğur Tepe’s personal website</span>
-        <ul class="footer-links" aria-label="CV and contact links" role="list">
+        <ul class="footer-links" aria-label="CV, contact, and research profiles" role="list">
             <li><a class="pdf-link" href="files/CV_Academic.pdf" target="_blank" rel="noopener" aria-label="Academic CV (PDF, opens in a new tab)">CV</a></li>
             <li><a class="link" href="mailto:ugur.tepe@hhu.de">Email</a></li>
             <li><a class="link" href="https://github.com/UgurTepe" target="_blank" rel="noopener">GitHub<img src="images/external-link.png" alt="" width="12" height="12"></a></li>
+            <li><a class="link" href="https://orcid.org/0009-0006-2486-6046" target="_blank" rel="noopener">ORCID<img src="images/external-link.png" alt="" width="12" height="12"></a></li>
+            <li><a class="link" href="https://scholar.google.com/citations?user=4BcqRzUAAAAJ&amp;hl=de" target="_blank" rel="noopener">Google Scholar<img src="images/external-link.png" alt="" width="12" height="12"></a></li>
         </ul>
         <a class="back-to-top" href="#top" hidden><span aria-hidden="true">↑</span> Back to top <span aria-hidden="true">↑</span></a>
     </footer>
