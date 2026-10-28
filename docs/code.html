@@ -29,9 +29,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap">
-    <link rel="stylesheet" href="style.css?v=51">
-    <script defer src="back-to-top.js?v=1"></script>
-    <script defer src="cat.js?v=1"></script>
+    <link rel="stylesheet" href="style.css?v=81">
+    <script defer src="js/back-to-top.js?v=2"></script>
+    <script defer src="js/cat.js?v=1"></script>
+    <script defer src="js/clock.js?v=1"></script>
+    <script defer src="js/copy-email.js?v=2"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-tomorrow.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
@@ -60,8 +62,6 @@
 </head>
 
 <body id="top">
-    <div class="space-galaxy" aria-hidden="true"></div>
-    <div class="space-nebula" aria-hidden="true"></div>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <nav aria-label="Primary">
         <div class="nav-links">
@@ -110,10 +110,10 @@
         <p>The Python example below samples a random variable from the uniform distribution U(0, 1).</p>
         <p>The usage is simple:</p>
         <ul>
-            <li class='list_item'>Import the class</li>
-            <li class='list_item'>Initialise the EBS class</li>
-            <li class='list_item'>Feed samples into EBS until the stopping condition is met</li>
-            <li class='list_item'>Return the estimate</li>
+            <li>Import the class</li>
+            <li>Initialise the EBS class</li>
+            <li>Feed samples into EBS until the stopping condition is met</li>
+            <li>Return the estimate</li>
         </ul>
 
         <p>This version of EBS uses an <b>absolute</b> accuracy target, which is better suited than a relative accuracy target
@@ -145,15 +145,15 @@ Number of samples taken: 14978</samp></pre>
         </section>
     </main>
     <footer class="site-footer">
-        <span>Uğur Tepe’s personal website</span>
+        <a class="back-to-top" href="#top" hidden><span aria-hidden="true">↑</span> Back to top <span aria-hidden="true">↑</span></a>
+        <time class="footer-clock" aria-live="off" title="Central European time"><span class="clock-date"></span><span aria-hidden="true"> · </span><span class="clock-time"></span></time>
         <ul class="footer-links" aria-label="CV, contact, and research profiles" role="list">
             <li><a class="pdf-link" href="files/CV_Academic.pdf" target="_blank" rel="noopener" aria-label="Academic CV (PDF, opens in a new tab)">CV</a></li>
-            <li><a class="link" href="mailto:ugur.tepe@hhu.de">Email</a></li>
+            <li><button class="link copy-email" type="button" data-email="ugur.tepe@hhu.de" aria-label="Copy email address: ugur.tepe@hhu.de" title="Copy email address">Email</button></li>
             <li><a class="link" href="https://github.com/UgurTepe" target="_blank" rel="noopener">GitHub<img src="images/external-link.png" alt="" width="12" height="12"></a></li>
             <li><a class="link" href="https://orcid.org/0009-0006-2486-6046" target="_blank" rel="noopener">ORCID<img src="images/external-link.png" alt="" width="12" height="12"></a></li>
             <li><a class="link" href="https://scholar.google.com/citations?user=4BcqRzUAAAAJ&amp;hl=de" target="_blank" rel="noopener">Google Scholar<img src="images/external-link.png" alt="" width="12" height="12"></a></li>
         </ul>
-        <a class="back-to-top" href="#top" hidden><span aria-hidden="true">↑</span> Back to top <span aria-hidden="true">↑</span></a>
     </footer>
 </body>
 

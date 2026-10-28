@@ -28,9 +28,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap">
-    <link rel="stylesheet" href="style.css?v=51">
-    <script defer src="back-to-top.js?v=1"></script>
-    <script defer src="cat.js?v=1"></script>
+    <link rel="stylesheet" href="style.css?v=81">
+    <script defer src="js/back-to-top.js?v=2"></script>
+    <script defer src="js/cat.js?v=1"></script>
+    <script defer src="js/clock.js?v=1"></script>
+    <script defer src="js/contact-form.js?v=1"></script>
+    <script defer src="js/copy-email.js?v=2"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -115,8 +118,6 @@
 </head>
 
 <body id="top">
-    <div class="space-galaxy" aria-hidden="true"></div>
-    <div class="space-nebula" aria-hidden="true"></div>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <nav aria-label="Primary">
         <div class="nav-links">
@@ -153,17 +154,12 @@
             <span class="cat-hint" aria-hidden="true"><span class="cat-hint-hover">hover over me</span><span class="cat-hint-touch">click me</span></span>
         </div>
     <h1>About Uğur Tepe</h1>
-    <p class="intro-description">I'm Uğur Tepe, a master's student in physics at <a class="link" href="https://www.hhu.de/" target="_blank" rel="noopener">Heinrich-Heine University Düsseldorf<img src="images/external-link.png" alt="" width="12" height="12"></a>. My interests lie in theoretical condensed matter physics and topological quantum computing.</p>
+    <p class="intro-description">I'm a master's student in physics in <a class="link" href="https://www.tp4.hhu.de/en/" target="_blank" rel="noopener">Reinhold Egger's group<img src="images/external-link.png" alt="" width="12" height="12"></a> at <a class="link" href="https://www.hhu.de/" target="_blank" rel="noopener">HHU Düsseldorf<img src="images/external-link.png" alt="" width="12" height="12"></a>, working on <a class="link" href="https://iopscience.iop.org/article/10.1088/1367-2630/aa54e1" target="_blank" rel="noopener">Majorana box qubits<img src="images/external-link.png" alt="" width="12" height="12"></a>.</p>
     <p>You can download my <a class='pdf-link' href='files/CV_Academic.pdf' target='_blank' rel="noopener">curriculum vitae</a>. <span class="file-meta">PDF · 110 kB</span></p>
     </header>
     <section class="content-section article-content" aria-labelledby="research-background-heading">
     <h2 id="research-background-heading">Research Background</h2>
-    <p>In my bachelor's thesis, I investigated adaptive methods for estimating quantum expectation values using the empirical Bernstein stopping rule. I adapted the algorithm to the quantum computing setting, developed a Python implementation, and tested the approach through quantum chemistry simulations. This work was later developed into a <a class="link" href="https://pubs.acs.org/doi/abs/10.1021/acs.jctc.5c00370" target="_blank" rel="noopener">paper in the <cite>Journal of Chemical Theory and Computation</cite><img src="images/external-link.png" alt="" width="12" height="12"></a> (2025).</p>
-    </section>
-    <section class="content-section article-content" aria-labelledby="research-group-heading">
-    <h2 id="research-group-heading">Research Group &amp; Current Work</h2>
-    <p>I'm currently working on my master's thesis in <a class="link" href="https://www.tp4.hhu.de/en/" target="_blank" rel="noopener">Reinhold Egger's group at the Institute for Theoretical Physics IV<img src="images/external-link.png" alt="" width="12" height="12"></a>, Heinrich-Heine University Düsseldorf (HHU). My research focuses on <a class="link" href="https://iopscience.iop.org/article/10.1088/1367-2630/aa54e1" target="_blank" rel="noopener">Majorana box qubits<img src="images/external-link.png" alt="" width="12" height="12"></a> and topological quantum computing within theoretical condensed matter physics.</p>
-    <p>My earlier work on quantum measurement sampling is described in my <a class="link" href="about_thesis.html">bachelor's thesis on quantum expectation value estimation</a> and the accompanying <a class="link" href="code.html">empirical Bernstein algorithm in Python</a>. See my <a class="link" href="index.html#publications-heading">publications and preprints</a> for the resulting paper.</p>
+    <p>In my <a class="link" href="about_thesis.html">bachelor's thesis</a>, I investigated adaptive methods for estimating quantum expectation values using the empirical Bernstein stopping rule. I adapted the algorithm to the quantum computing setting, developed a <a class="link" href="code.html">Python implementation</a>, and tested the approach through quantum chemistry simulations. This work was later developed into a <a class="link" href="https://pubs.acs.org/doi/abs/10.1021/acs.jctc.5c00370" target="_blank" rel="noopener">paper in the <cite>Journal of Chemical Theory and Computation</cite><img src="images/external-link.png" alt="" width="12" height="12"></a> (2025).</p>
     </section>
     <section class="content-section" aria-labelledby="contact-heading">
     <h2 id="contact-heading">Links &amp; Contact</h2>
@@ -175,8 +171,7 @@
             </picture>
             <div class="contact-details">
                 <span class="contact-label">Email</span>
-                <button class="link contact-value copy-email" id="email-address" type="button" aria-label="Copy email address: ugur.tepe@hhu.de" title="Copy email address">ugur.tepe@hhu.de</button>
-                <span class="email-copy-status" id="email-copy-status" role="status"></span>
+                <button class="link contact-value copy-email" data-email="ugur.tepe@hhu.de" type="button" aria-label="Copy email address: ugur.tepe@hhu.de" title="Copy email address">ugur.tepe@hhu.de</button>
             </div>
         </div>
         <div class="contact-item">
@@ -216,58 +211,45 @@
         </div>
     </div>
     </section>
-    <script>
-        const emailAddress = document.getElementById('email-address');
-        const emailCopyStatus = document.getElementById('email-copy-status');
-
-        emailAddress.addEventListener('click', async function () {
-            const email = this.textContent.trim();
-            let copied = false;
-            emailCopyStatus.textContent = '';
-
-            try {
-                await navigator.clipboard.writeText(email);
-                copied = true;
-            } catch {
-                // Some embedded previews restrict the Clipboard API.
-                const field = document.createElement('textarea');
-                field.value = email;
-                field.setAttribute('readonly', '');
-                field.style.cssText = 'position:fixed;left:-9999px;top:0;';
-                document.body.appendChild(field);
-                field.select();
-
-                try {
-                    copied = document.execCommand('copy');
-                } catch {
-                    copied = false;
-                } finally {
-                    field.remove();
-                    emailAddress.focus({ preventScroll: true });
-                }
-            }
-
-            emailCopyStatus.textContent = copied ? 'Copied!' : 'Select and copy the address.';
-            if (!copied) {
-                const selection = window.getSelection();
-                const range = document.createRange();
-                range.selectNodeContents(emailAddress);
-                selection?.removeAllRanges();
-                selection?.addRange(range);
-            }
-        });
-    </script>
+    <section class="content-section" aria-labelledby="contact-form-heading">
+    <h2 id="contact-form-heading">Contact Form</h2>
+    <form class="contact-form" id="contact-form" action="https://formsubmit.co/ugur.tepe@hhu.de" method="POST" aria-labelledby="contact-form-heading">
+        <p class="contact-form-intro">Have a question about my research or website? Feel free to get in touch. All fields are required.</p>
+        <input type="hidden" name="_subject" value="New message from ugurtepe.de">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_url" value="https://ugurtepe.de/aboutme.html">
+        <input class="contact-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="contact-form-row">
+            <div class="form-field">
+                <label for="contact-name">Name</label>
+                <input id="contact-name" type="text" name="name" autocomplete="name" maxlength="100" aria-describedby="contact-name-error" required>
+                <span class="form-error" id="contact-name-error" aria-live="polite" hidden></span>
+            </div>
+            <div class="form-field">
+                <label for="contact-email">Email</label>
+                <input id="contact-email" type="email" name="email" autocomplete="email" maxlength="254" aria-describedby="contact-email-error" required>
+                <span class="form-error" id="contact-email-error" aria-live="polite" hidden></span>
+            </div>
+        </div>
+        <div class="form-field">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="6" maxlength="10000" aria-describedby="contact-message-error" required></textarea>
+            <span class="form-error" id="contact-message-error" aria-live="polite" hidden></span>
+        </div>
+        <button class="contact-submit" type="submit">Send message</button>
+    </form>
+    </section>
     </main>
     <footer class="site-footer">
-        <span>Uğur Tepe’s personal website</span>
+        <a class="back-to-top" href="#top" hidden><span aria-hidden="true">↑</span> Back to top <span aria-hidden="true">↑</span></a>
+        <time class="footer-clock" aria-live="off" title="Central European time"><span class="clock-date"></span><span aria-hidden="true"> · </span><span class="clock-time"></span></time>
         <ul class="footer-links" aria-label="CV, contact, and research profiles" role="list">
             <li><a class="pdf-link" href="files/CV_Academic.pdf" target="_blank" rel="noopener" aria-label="Academic CV (PDF, opens in a new tab)">CV</a></li>
-            <li><a class="link" href="mailto:ugur.tepe@hhu.de">Email</a></li>
+            <li><button class="link copy-email" type="button" data-email="ugur.tepe@hhu.de" aria-label="Copy email address: ugur.tepe@hhu.de" title="Copy email address">Email</button></li>
             <li><a class="link" href="https://github.com/UgurTepe" target="_blank" rel="noopener">GitHub<img src="images/external-link.png" alt="" width="12" height="12"></a></li>
             <li><a class="link" href="https://orcid.org/0009-0006-2486-6046" target="_blank" rel="noopener">ORCID<img src="images/external-link.png" alt="" width="12" height="12"></a></li>
             <li><a class="link" href="https://scholar.google.com/citations?user=4BcqRzUAAAAJ&amp;hl=de" target="_blank" rel="noopener">Google Scholar<img src="images/external-link.png" alt="" width="12" height="12"></a></li>
         </ul>
-        <a class="back-to-top" href="#top" hidden><span aria-hidden="true">↑</span> Back to top <span aria-hidden="true">↑</span></a>
     </footer>
 </body>
 

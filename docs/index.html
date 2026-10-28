@@ -28,9 +28,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap">
-    <link rel="stylesheet" href="style.css?v=51">
-    <script defer src="back-to-top.js?v=1"></script>
-    <script defer src="cat.js?v=1"></script>
+    <link rel="stylesheet" href="style.css?v=81">
+    <script defer src="js/back-to-top.js?v=2"></script>
+    <script defer src="js/cat.js?v=1"></script>
+    <script defer src="js/clock.js?v=1"></script>
+    <script defer src="js/copy-email.js?v=2"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -96,8 +98,6 @@
 </head>
 
 <body id="top">
-    <div class="space-galaxy" aria-hidden="true"></div>
-    <div class="space-nebula" aria-hidden="true"></div>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <nav aria-label="Primary">
         <div class="nav-links">
@@ -150,7 +150,7 @@
         <section class="content-section" aria-labelledby="research-heading">
         <h2 id="research-heading">Research Interests</h2>
         <ul class="research-list" role="list">
-            <li class="list_item">
+            <li>
                 <a class="research-link" href="https://en.wikipedia.org/wiki/Condensed_matter_physics" target="_blank" rel="noopener">
                     <span class="research-icon research-lattice" aria-hidden="true">
                         <span class="lattice-line lattice-column-left"></span>
@@ -162,9 +162,9 @@
                     <span>Theoretical Condensed Matter</span>
                 </a>
             </li>
-            <li class="list_item">
+            <li>
                 <a class="research-link" href="https://en.wikipedia.org/wiki/Topological_quantum_computer" target="_blank" rel="noopener">
-                    <span class="research-icon research-braid" aria-hidden="true">
+                    <span class="research-icon" aria-hidden="true">
                         <span class="braid-strand braid-strand-a"></span>
                         <span class="braid-strand braid-strand-b"></span>
                         <span class="braid-strand braid-strand-c"></span>
@@ -172,7 +172,7 @@
                     <span>Topological Quantum Computing</span>
                 </a>
             </li>
-            <li class="list_item">
+            <li>
                 <a class="research-link" href="https://en.wikipedia.org/wiki/Quantum_information" target="_blank" rel="noopener">
                     <span class="research-icon research-qubit" aria-hidden="true">
                         <span class="qubit-equator"></span>
@@ -186,8 +186,8 @@
 
         <section class="content-section" aria-labelledby="publications-heading">
         <h2 id="publications-heading">Publications / Preprints</h2>
-        <ol class="publication-list">
-            <li class="list_item">
+        <ol>
+            <li>
                 <a class="link publication-title" href="https://pubs.acs.org/doi/abs/10.1021/acs.jctc.5c00370" target="_blank" rel="noopener">Reducing the sampling
                     complexity of energy estimation in quantum many-body systems using empirical variance
                     information<img src="images/external-link.png" alt="" width="12" height="12"></a>
@@ -201,15 +201,15 @@
         <section class="content-section" aria-labelledby="talks-heading">
         <h2 id="talks-heading">Talks / Presentations</h2>
         <ul>
-            <li class='list_item'><a class="pdf-link" href="files/poster.pdf" target="_blank" rel="noopener">Poster</a> for DPG Spring Meeting 2024 <span class="file-meta">PDF · 824 kB</span></li>
-            <li class='list_item'><a class="pdf-link" href="files/seminar_thesis.pdf" target="_blank" rel="noopener">Presentation</a> about my bachelor's thesis <span class="file-meta">PDF · 3.1 MB</span></li>
+            <li><a class="pdf-link" href="files/poster.pdf" target="_blank" rel="noopener">Poster</a> for DPG Spring Meeting 2024 <span class="file-meta">PDF · 824 kB</span></li>
+            <li><a class="pdf-link" href="files/seminar_thesis.pdf" target="_blank" rel="noopener">Presentation</a> about my bachelor's thesis <span class="file-meta">PDF · 3.1 MB</span></li>
         </ul>
         </section>
 
         <section class="content-section" aria-labelledby="thesis-heading">
         <h2 id="thesis-heading">Thesis</h2>
         <ul>
-            <li class='list_item'><a class='pdf-link' href='files/Bachelor_Thesis.pdf' target="_blank" rel="noopener">Bachelor Thesis</a>
+            <li><a class='pdf-link' href='files/Bachelor_Thesis.pdf' target="_blank" rel="noopener">Bachelor Thesis</a>
                 (Advisors: Alexander
                 Gresch and <a class='link' href='https://www.mkliesch.eu/index.html' target="_blank" rel="noopener">Martin Kliesch<img
                         src='images/external-link.png' alt="" width="12" height="12"></a>). Read the <a class='link'
@@ -221,22 +221,22 @@
         <section class="content-section" aria-labelledby="code-heading">
         <h2 id="code-heading">Code</h2>
         <ul>
-            <li class='list_item'>My implementation of the empirical Bernstein algorithm on <a class='link'
+            <li>My implementation of the empirical Bernstein algorithm on <a class='link'
                     href='https://github.com/UgurTepe/EmpiricalBernsteinAlgorithm' target="_blank" rel="noopener">GitHub<img
                         src='images/external-link.png' alt="" width="12" height="12"></a>. See the <a class="link" href="code.html">code example</a>.</li>
         </ul>
         </section>
     </main>
     <footer class="site-footer">
-        <span>Uğur Tepe’s personal website</span>
+        <a class="back-to-top" href="#top" hidden><span aria-hidden="true">↑</span> Back to top <span aria-hidden="true">↑</span></a>
+        <time class="footer-clock" aria-live="off" title="Central European time"><span class="clock-date"></span><span aria-hidden="true"> · </span><span class="clock-time"></span></time>
         <ul class="footer-links" aria-label="CV, contact, and research profiles" role="list">
             <li><a class="pdf-link" href="files/CV_Academic.pdf" target="_blank" rel="noopener" aria-label="Academic CV (PDF, opens in a new tab)">CV</a></li>
-            <li><a class="link" href="mailto:ugur.tepe@hhu.de">Email</a></li>
+            <li><button class="link copy-email" type="button" data-email="ugur.tepe@hhu.de" aria-label="Copy email address: ugur.tepe@hhu.de" title="Copy email address">Email</button></li>
             <li><a class="link" href="https://github.com/UgurTepe" target="_blank" rel="noopener">GitHub<img src="images/external-link.png" alt="" width="12" height="12"></a></li>
             <li><a class="link" href="https://orcid.org/0009-0006-2486-6046" target="_blank" rel="noopener">ORCID<img src="images/external-link.png" alt="" width="12" height="12"></a></li>
             <li><a class="link" href="https://scholar.google.com/citations?user=4BcqRzUAAAAJ&amp;hl=de" target="_blank" rel="noopener">Google Scholar<img src="images/external-link.png" alt="" width="12" height="12"></a></li>
         </ul>
-        <a class="back-to-top" href="#top" hidden><span aria-hidden="true">↑</span> Back to top <span aria-hidden="true">↑</span></a>
     </footer>
 </body>
 </html>
