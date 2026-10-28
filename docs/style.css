@@ -421,7 +421,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
     .research-list { display: block; }
     .research-list li + li { margin-top: 0.4rem; }
     .contact-links { grid-template-columns: 1fr; justify-items: start; gap: 1rem; }
-    .site-footer { margin-top: 1.5rem; }
+    .site-footer { margin-top: 1.5rem; padding-top: 1.75rem; }
+    .back-to-top { position: absolute; top: 0.5px; bottom: auto; transform: translate(-50%, -50%); }
 }
 @media (max-width: 420px) {
     body { padding-inline: 1rem; }
