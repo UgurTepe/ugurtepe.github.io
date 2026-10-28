@@ -42,12 +42,9 @@ body::before, body::after {
     z-index: -1;
     pointer-events: none;
 }
-/* A roomier original starfield, with faint nebula wisps near the edges. */
+/* A roomier original starfield, with a faint glow at the right edge. */
 body::before {
     background:
-        radial-gradient(ellipse 22% 5% at 5% 35%, #a5abc41a, #a5abc400 75%) 0 0 / 100% 100% no-repeat,
-        radial-gradient(ellipse 42% 16% at 0% 33%, #4d6d9a38, #32466c1a 42%, #32466c00 76%) 0 0 / 100% 100% no-repeat,
-        radial-gradient(ellipse 30% 10% at 12% 38%, #805a8d2b, #50345e12 45%, #50345e00 78%) 0 0 / 100% 100% no-repeat,
         radial-gradient(ellipse 27% 24% at 104% 79%, #62418226, #302b5710 40%, #302b5700 78%) 0 0 / 100% 100% no-repeat,
         url("images/starfiel.gif") 0 0 / var(--star-tile-size) var(--star-tile-size) repeat;
     background-blend-mode: screen;
@@ -84,6 +81,65 @@ body::after {
         radial-gradient(5.5px 5.5px at 284px 158px, #a260ff33, #a260ff00 100%) 0 0 / 811px 683px,
         radial-gradient(5px 5px at 643px 72px, #a260ff2b, #a260ff00 100%) 0 0 / 883px 757px,
         radial-gradient(5px 5px at 138px 487px, #a260ff2b, #a260ff00 100%) 0 0 / 697px 739px;
+}
+/* Ivory starlight, taupe dust, and a faint swirl within blue-gray haze. */
+.space-galaxy {
+    position: fixed;
+    left: -45px;
+    top: 8vh;
+    z-index: -1;
+    width: 300px;
+    height: 300px;
+    transform: rotate(-28deg) scaleY(0.55);
+    filter: blur(1.2px);
+    opacity: 0.6;
+    background:
+        radial-gradient(ellipse 10% 12% at center, #fff4d9cc, #e8c69466 35%, transparent 78%),
+        radial-gradient(ellipse 23% 26% at center, #b9aa9247, transparent 76%),
+        radial-gradient(ellipse 48% 48% at center, #75818e2e, transparent 78%);
+    pointer-events: none;
+}
+.space-galaxy::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 36% 27% at 31% 46%, #c2bdab4d, transparent 80%),
+        radial-gradient(ellipse 30% 34% at 65% 57%, #a3adb252, transparent 82%),
+        radial-gradient(ellipse 43% 30% at 49% 54%, #96836e33, transparent 82%);
+    filter: blur(12px);
+}
+.space-galaxy::after {
+    content: "";
+    position: absolute;
+    inset: 14%;
+    background:
+        radial-gradient(ellipse 48% 43% at 44% 47%, transparent 38%, #ded8c64d 50%, transparent 65%),
+        radial-gradient(ellipse 39% 46% at 57% 55%, transparent 32%, #aebac140 46%, transparent 63%);
+    -webkit-mask-image: conic-gradient(from 25deg, transparent, #000 65deg, transparent 155deg, #000 245deg, transparent 335deg);
+    mask-image: conic-gradient(from 25deg, transparent, #000 65deg, transparent 155deg, #000 245deg, transparent 335deg);
+    transform: rotate(12deg);
+    filter: blur(7px);
+}
+.space-nebula {
+    position: fixed;
+    right: -1vw;
+    bottom: 6vh;
+    z-index: -1;
+    width: clamp(220px, 28vw, 400px);
+    aspect-ratio: 1.25;
+    opacity: 0.65;
+    transform: rotate(-24deg);
+    filter: blur(20px);
+    /* Offset clouds keep an irregular outline; each hue fades through its own alpha. */
+    background:
+        radial-gradient(ellipse 32% 34% at 29% 38%, #df6daf80, #df6daf38 38%, #df6daf00 100%),
+        radial-gradient(ellipse 38% 37% at 47% 57%, #8b66d99c, #8b66d945 40%, #8b66d900 100%),
+        radial-gradient(ellipse 28% 35% at 71% 43%, #459dd287, #459dd238 38%, #459dd200 100%),
+        radial-gradient(ellipse 30% 25% at 69% 73%, #db7c976d, #db7c972e 36%, #db7c9700 100%);
+    background-blend-mode: screen;
+    pointer-events: none;
+    user-select: none;
 }
 ::selection { background: var(--accent); color: var(--background); }
 main, nav, .site-footer { width: 100%; max-width: 960px; margin-inline: auto; }
@@ -156,6 +212,7 @@ p { margin: 0 0 0.9rem; }
 .page-intro > p:last-child { margin-bottom: 0; }
 .intro-description { color: #e5dfc0; font-size: 1.05rem; }
 .intro-bio { color: #eee6c9; }
+.research-project-title { margin: 0 0 0.65rem; color: var(--highlight); }
 .content-section { padding: 1rem 0 0.25rem; }
 .content-section > h2 {
     display: table;
@@ -277,7 +334,7 @@ img { max-width: 100%; height: auto; }
 .code-block pre.line-numbers { padding-left: 3.8em; }
 .code-block code { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875rem; line-height: 1.75; }
 .code-block .line-numbers .line-numbers-rows { border-right-color: var(--line); }
-.contact-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 1.5rem; }
+.contact-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 1.5rem; }
 .contact-item { display: flex; align-items: flex-start; gap: 0.75rem; min-width: 0; max-width: 100%; }
 .contact-icon { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 51px; }
 .contact-icon img { display: block; max-width: 44px; max-height: 51px; }
@@ -287,10 +344,14 @@ img { max-width: 100%; height: auto; }
 .email-copy-status { display: block; color: var(--muted); font-size: 0.75rem; line-height: 1.5; }
 .contact-label { display: block; margin-bottom: 0.1rem; color: var(--muted); font-size: 0.75rem; }
 .site-footer {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.25rem 1rem;
     margin-top: 2rem; padding: 1rem 0 1.5rem;
     background: var(--divider-spectrum) top left / 200% 1px no-repeat;
     color: var(--muted); font-size: 0.75rem;
 }
+.footer-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 0 1.25rem; margin: 0 0 0 auto; padding: 0; list-style: none; }
+.footer-links li { margin: 0; padding: 0; }
+.footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
 body > hr, .site-footer {
     background-repeat: repeat-x;
     animation: divider-flow var(--divider-duration) linear infinite;
@@ -304,6 +365,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
 .skip-link:focus { top: 0.5rem; }
 @media (max-width: 720px) {
     body { padding-inline: 1.4rem; font-size: 15px; }
+    .space-galaxy { left: -70px; top: 4vh; transform: scale(0.65) rotate(-28deg) scaleY(0.55); transform-origin: top left; opacity: 0.45; }
+    .space-nebula { width: 180px; right: -45px; opacity: 0.5; }
     nav { padding-top: 1.5rem; }
     .nav-links {
         display: grid;
@@ -337,5 +400,5 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
 }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
-    body > hr, .site-footer { animation-duration: 20s; }
+    body > hr, .site-footer { animation: none; }
 }

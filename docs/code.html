@@ -14,13 +14,22 @@
     <meta property="og:description" content="Python code by Uğur Tepe for the empirical Bernstein stopping rule, used to estimate quantum expectation values with fewer measurement samples.">
     <meta property="og:url" content="https://ugurtepe.de/code.html">
     <meta property="og:site_name" content="Uğur Tepe">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://ugurtepe.de/images/social-preview.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Uğur Tepe - condensed matter physics, topological quantum computing, and quantum information, with a cat against a starfield.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://ugurtepe.de/images/social-preview.png">
+    <meta name="twitter:image:alt" content="Uğur Tepe - condensed matter physics, topological quantum computing, and quantum information, with a cat against a starfield.">
     <meta name="twitter:title" content="Uğur Tepe | Empirical Bernstein Algorithm in Python">
     <meta name="twitter:description" content="Python code by Uğur Tepe for the empirical Bernstein stopping rule, used to estimate quantum expectation values with fewer measurement samples.">
+    <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+    <link rel="icon" type="image/png" href="images/favicon.png" sizes="64x64">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap">
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="style.css?v=24">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-tomorrow.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
@@ -49,6 +58,8 @@
 </head>
 
 <body>
+    <div class="space-galaxy" aria-hidden="true"></div>
+    <div class="space-nebula" aria-hidden="true"></div>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <nav aria-label="Primary">
         <div class="nav-links">
@@ -126,7 +137,12 @@ print("Number of samples taken:", round(ebs.get_num_samples()))
         </section>
     </main>
     <footer class="site-footer">
-        Ugur Tepes personal website
+        <span>Uğur Tepe’s personal website</span>
+        <ul class="footer-links" aria-label="CV and contact links" role="list">
+            <li><a class="pdf-link" href="files/CV_Academic.pdf" target="_blank" rel="noopener" aria-label="Academic CV (PDF, opens in a new tab)">CV</a></li>
+            <li><a class="link" href="mailto:ugur.tepe@hhu.de">Email</a></li>
+            <li><a class="link" href="https://github.com/UgurTepe" target="_blank" rel="noopener">GitHub<img src="images/external-link.png" alt="" width="12" height="12"></a></li>
+        </ul>
     </footer>
 </body>
 
