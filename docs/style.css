@@ -3,7 +3,9 @@
     color-scheme: dark;
     /* Retro space palette: cream, vivid magenta, orange, and amber; green for the author's name. */
     --background: #000000;
-    --surface: #111111;
+    --surface: #171121;
+    --surface-raised: #21182c;
+    --surface-inset: #0d0a12;
     --text: #fff8dc;
     --muted: #c3bea5;
     --accent: #e700fc;
@@ -14,12 +16,14 @@
     --research-accent: #e88991;
     --name-highlight: #83e556;
     --focus: var(--highlight);
-    --line: #38352f;
+    --line: #70617e;
     --ui-border: 1px solid var(--line);
     --ui-radius: 3px;
+    --panel-padding: 1.25rem;
     --divider-spectrum: linear-gradient(90deg, #ff0505, #ff00e1 8.333%, #bb00ff 16.667%, #3300ff 25%, #0055ff 33.333%, #00ccff 41.667%, #00ffbb 50%, #77ff00 58.333%, #ccff00 66.667%, #ffee00 75%, #ffbb00 83.333%, #ff6600 91.667%, #ff0505);
     --divider-duration: 4s;
     --font: "PT Serif", Georgia, "Times New Roman", Times, serif;
+    --font-mono: Consolas, "Liberation Mono", Menlo, monospace;
 }
 
 * { box-sizing: border-box; }
@@ -206,15 +210,19 @@ img { max-width: 100%; height: auto; }
 /* The image and normalized state collapse together for ten seconds after measurement. */
 .cat-interaction { position: relative; display: block; float: right; width: 178px; margin: 0.15rem 1.25rem 1rem 2rem; color: var(--muted); text-decoration: none; }
 .img1 { display: block; width: 100%; max-width: 152px; margin-inline: auto; opacity: 0.88; }
+/* Shared midnight-purple panels for mathematics, code, output, and contact. */
+.math-display, .code-block, .contact-form {
+    border: var(--ui-border);
+    border-radius: var(--ui-radius);
+    background: var(--surface);
+    color: var(--text);
+}
 .math-display {
     clear: both;
     max-width: 100%;
     overflow-x: auto;
-    padding: 0.9rem 1.25rem;
-    margin: 1.5rem 0;
-    border: var(--ui-border);
-    border-radius: var(--ui-radius);
-    background: var(--surface);
+    padding: var(--panel-padding);
+    margin: 1.75rem 0;
 }
 .cat-equation { display: grid; place-items: center; min-height: 2.75rem; margin-top: 0.65rem; color: #ffffff; text-align: center; }
 .cat-equation math { font-family: "Cambria Math", "STIX Two Math", serif; font-size: 0.875rem; white-space: nowrap; }
@@ -249,19 +257,43 @@ img { max-width: 100%; height: auto; }
     .cat-interaction .img1 { opacity: 1; }
 }
 .article-content > p { color: #eee6c9; }
-.thesis-figure { clear: both; max-width: 559px; margin: 1.75rem auto; }
-.img2 { display: block; width: 100%; border-radius: 8px; }
+.thesis-figures { clear: both; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 1.25rem; margin: 1.75rem 0; }
+.thesis-figure { min-width: 0; margin: 0; }
+.thesis-figure figcaption { margin-top: 0.65rem; color: var(--muted); font-size: 0.8125rem; line-height: 1.6; }
+.thesis-figure figcaption strong { color: var(--text); }
+.img2 { display: block; width: 100%; border-radius: var(--ui-radius); }
 .footnote-reference, .footnote-reference:hover { color: var(--reference); text-decoration-color: currentColor; }
 .footnote, .article-content > .footnote { clear: both; margin: 1.5rem 0; color: var(--reference); font-size: 0.8rem; }
 .footnote-box { display: inline-block; padding: 0.25rem 0.75rem; background: #99c7ee12; }
 .code-block { clear: both; margin: 1.75rem 0; }
-.code-caption { margin: 0; padding: 0.65rem 1rem; border: var(--ui-border); border-bottom: 0; border-radius: var(--ui-radius) var(--ui-radius) 0 0; background: var(--surface); color: var(--muted); font: 0.75rem/1.5 Consolas, monospace; }
-.code-block pre[class*="language-"] { margin: 0; padding: 1rem 1.25rem; border: var(--ui-border); border-radius: 0 0 var(--ui-radius) var(--ui-radius); background: #000000; overflow: auto; }
+.code-caption { margin: 0; padding: 0.65rem var(--panel-padding); border-bottom: var(--ui-border); border-radius: 2px 2px 0 0; background: var(--surface-raised); color: var(--muted); font: 0.75rem/1.5 var(--font-mono); }
+.code-block pre[class*="language-"], .terminal-output pre {
+    margin: 0;
+    padding: var(--panel-padding);
+    border: 0;
+    border-radius: 0 0 var(--ui-radius) var(--ui-radius);
+    background: transparent;
+    color: var(--text);
+    overflow-x: auto;
+}
 .code-block pre.line-numbers { padding-left: 3.8em; }
-.code-block code { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875rem; line-height: 1.75; }
+.code-block pre, .code-block code, .terminal-output samp {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    line-height: 1.75;
+    text-shadow: none;
+}
+.code-block code { color: inherit; }
 .code-block .line-numbers .line-numbers-rows { border-right-color: var(--line); }
-.terminal-output pre { margin: 0; padding: 1rem 1.25rem; border: var(--ui-border); border-radius: 0 0 var(--ui-radius) var(--ui-radius); background: #000000; color: var(--name-highlight); overflow-x: auto; }
-.terminal-output samp { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875rem; line-height: 1.75; }
+.code-block .line-numbers-rows > span::before { color: var(--muted); }
+.code-block .token { background: transparent; }
+.code-block .token:is(.comment, .prolog, .doctype, .cdata) { color: var(--muted); }
+.code-block .token:is(.punctuation, .operator) { color: var(--text); }
+.code-block .token:is(.keyword, .atrule, .attr-value) { color: var(--highlight); }
+.code-block .token:is(.string, .char, .attr-name, .builtin) { color: var(--name-highlight); }
+.code-block .token:is(.number, .boolean, .constant, .symbol) { color: var(--reference); }
+.code-block .token:is(.function, .class-name, .property, .tag, .selector) { color: var(--research-accent); }
+.terminal-output pre { color: var(--name-highlight); }
 .back-to-top {
     position: absolute;
     top: 1px;
@@ -308,17 +340,11 @@ img { max-width: 100%; height: auto; }
 }
 .email-copy-status:not(:empty) { padding: 0.25rem 0.5rem; background: var(--background); }
 .contact-label { display: block; margin-bottom: 0.1rem; color: var(--muted); font-size: 0.75rem; }
-/* Solid midnight purple, cream text, and amber labels suit the retro starfield. */
 .contact-form {
     display: grid;
     gap: 0.85rem;
     max-width: 36rem;
-    padding: 1rem;
-    border: var(--ui-border);
-    border-color: #645373;
-    border-radius: var(--ui-radius);
-    background: #171121;
-    color: var(--text);
+    padding: var(--panel-padding);
 }
 .contact-form-intro { margin: 0; color: var(--muted); font-size: 0.875rem; }
 .contact-form-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
@@ -336,9 +362,8 @@ img { max-width: 100%; height: auto; }
     min-width: 0;
     padding: 0.5rem 0.65rem;
     border: var(--ui-border);
-    border-color: #7f718c;
     border-radius: var(--ui-radius);
-    background: var(--background);
+    background: var(--surface-inset);
     color: var(--text);
     font: inherit;
     font-size: 1rem;
@@ -355,14 +380,15 @@ img { max-width: 100%; height: auto; }
     appearance: none;
     justify-self: start;
     min-height: 44px;
-    padding: 0;
-    border: 0;
-    background: transparent;
+    padding: 0.5rem 1rem;
+    border: var(--ui-border);
+    border-radius: var(--ui-radius);
+    background: var(--surface-raised);
     color: var(--text);
     font: inherit;
     cursor: pointer;
 }
-.contact-submit:hover, .contact-submit:active { text-decoration: underline; text-underline-offset: 4px; }
+.contact-submit:is(:hover, :focus-visible, :active) { border-color: var(--highlight); color: var(--highlight); }
 .site-footer {
     position: relative;
     display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.25rem 1rem;
@@ -398,6 +424,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .skip-link { position: absolute; top: -100px; left: 1rem; z-index: 2; padding: 0.5rem 1rem; background: var(--focus); color: var(--background); border-radius: 3px; }
 .skip-link:focus { top: 0.5rem; }
 @media (max-width: 720px) {
+    :root { --panel-padding: 1rem; }
     body { padding-inline: 1.4rem; font-size: 15px; }
     nav { padding-top: 0.5rem; }
     .nav-links {
@@ -419,6 +446,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .content-section > h2 { font-size: 1.25rem; }
     .research-list { display: block; }
     .research-list li + li { margin-top: 0.4rem; }
+    .thesis-figures { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+    .thesis-figure { width: 100%; max-width: 559px; justify-self: center; }
     .contact-links { grid-template-columns: 1fr; justify-items: start; gap: 1rem; }
     .contact-form-row { grid-template-columns: 1fr; }
     .site-footer {

@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap">
-    <link rel="stylesheet" href="style.css?v=83">
+    <link rel="stylesheet" href="style.css?v=85">
     <script defer src="js/back-to-top.js?v=2"></script>
     <script defer src="js/cat.js?v=1"></script>
     <script defer src="js/clock.js?v=1"></script>
@@ -103,7 +103,7 @@
         <section class="content-section article-content" aria-labelledby="overview-heading">
         <h2 id="overview-heading">Overview</h2>
         <p>This thesis was advised by Alexander Gresch and Martin Kliesch. The accompanying <a class="link" href="code.html">empirical Bernstein algorithm in Python</a> implements the adaptive sampling method.</p>
-        <p>We studied an application of the <a class="pdf-link" href="files/ebs_mnih.pdf" target="_blank" rel="noopener">empirical
+        <p>The thesis explored an application of the <a class="pdf-link" href="files/ebs_mnih.pdf" target="_blank" rel="noopener">empirical
             Bernstein stopping rule</a><sup><a class="link footnote-reference" href="#reference-1" aria-label="Reference 1">[1]</a></sup>
             (EBS) in quantum computing. See the reference below for the original paper. <span class="file-meta">PDF · 399 kB</span></p>
         <div class="math-display" tabindex="0" role="region" aria-label="Empirical Bernstein bound">
@@ -118,13 +118,24 @@
             confidence parameter.</p>
         <p>The goal was to estimate quantum expectation values with a required accuracy \(\epsilon\) and confidence
             \(1 - \delta\) while minimizing the number of measurement shots.</p>
-        <p>The figure below compares EBS with a sampling bound based on Hoeffding's inequality for estimating the ground-state
-            energy of NH<sub>3</sub>. We set the accuracy \(\epsilon\) to chemical accuracy, i.e. \(0.0016\,\mathrm{Ha}\). In this example,
-            EBS requires fewer samples to reach the target accuracy.</p>
-        <figure class="thesis-figure">
-            <img src="images/ebs_example.png" class="img2" width="559" height="409"
-                alt="Comparison of sample counts for EBS and a Hoeffding bound when estimating the ground-state energy of ammonia">
-        </figure>
+        <p>Numerical experiments used EBS to estimate ground-state energies of molecule-inspired Hamiltonians. The plots below show how
+            accuracy improves with additional measurements and how the measurement cost varies across molecules and qubit
+            mappings. In these examples, EBS reaches the target accuracy with fewer measurement rounds than required by
+            Hoeffding's guarantee.</p>
+        <div class="thesis-figures">
+            <figure class="thesis-figure" id="accuracy-scaling">
+                <img src="images/ebs_accuracy_scaling.svg" class="img2" width="559" height="409"
+                    alt="Reliable accuracy versus total measurement rounds for a BeH2-inspired Hamiltonian in Jordan–Wigner encoding. Green EBS asterisks have a fitted exponent of 0.68 ± 0.02; red single-shot estimator dots have exponent 0.5. The Bernstein bound is also shown.">
+                <figcaption><strong>Accuracy scaling.</strong> Ground-state energy estimation for a BeH<sub>2</sub>-inspired
+                    Hamiltonian. The shaded region marks chemical accuracy.</figcaption>
+            </figure>
+            <figure class="thesis-figure" id="molecule-comparison">
+                <img src="images/ebs_molecule_comparison.svg" class="img2" width="559" height="409"
+                    alt="Measurement rounds to reach chemical accuracy for molecule-inspired Hamiltonians: EBS with Jordan–Wigner, Bravyi–Kitaev, and parity mappings versus Hoeffding's mapping-independent guarantee. Systems are H2 with 4 and 8 qubits, LiH with 12, BeH2 and H2O with 14, and NH3 with 16.">
+                <figcaption><strong>Measurement cost.</strong> Rounds needed to reach chemical accuracy across molecules and
+                    qubit mappings, compared with Hoeffding's guarantee. \(n\) is the number of qubits.</figcaption>
+            </figure>
+        </div>
         <p class="footnote" id="reference-1"><span class="footnote-box">[1] Mnih et al., 2008</span></p>
         </section>
     </main>
