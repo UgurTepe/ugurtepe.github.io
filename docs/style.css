@@ -24,6 +24,7 @@
 
 * { box-sizing: border-box; }
 html { min-width: 280px; scroll-padding-top: 2rem; }
+.smooth-scroll { scroll-behavior: smooth; }
 body {
     margin: 0;
     padding: 0 2rem;
@@ -343,6 +344,10 @@ img { max-width: 100%; height: auto; }
 .code-block pre.line-numbers { padding-left: 3.8em; }
 .code-block code { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875rem; line-height: 1.75; }
 .code-block .line-numbers .line-numbers-rows { border-right-color: var(--line); }
+.terminal-output pre { margin: 0; padding: 1rem 1.25rem; border: 1px solid var(--line); border-radius: 0 0 10px 10px; background: #000000; color: var(--name-highlight); overflow-x: auto; }
+.terminal-output samp { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875rem; line-height: 1.75; }
+.back-to-top { display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: fit-content; min-height: 44px; margin: 2rem auto 0; padding: 0.5rem 1rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--highlight); font-size: 0.875rem; text-decoration: none; transition: border-color 0.2s, background-color 0.2s; }
+.back-to-top:hover { border-color: var(--highlight); background: var(--surface-hover); }
 .contact-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 1.5rem; }
 .contact-item { display: flex; align-items: flex-start; gap: 0.75rem; min-width: 0; max-width: 100%; }
 .contact-icon { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 51px; }

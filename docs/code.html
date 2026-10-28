@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="smooth-scroll">
 
 <head>
     <meta charset="utf-8">
@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap">
-    <link rel="stylesheet" href="style.css?v=28">
+    <link rel="stylesheet" href="style.css?v=30">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-tomorrow.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
@@ -57,7 +57,7 @@
     </script>
 </head>
 
-<body>
+<body id="top">
     <div class="space-galaxy" aria-hidden="true"></div>
     <div class="space-nebula" aria-hidden="true"></div>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -132,12 +132,15 @@ while ebs.cond_check():
     ebs.add_sample(np.random.uniform(a, b))
 
 print("Estimated mean:", ebs.get_estimate())
-print("Number of samples taken:", round(ebs.get_num_samples()))
-# Example output (values vary between runs):
-# Estimated mean: 0.50
-# Number of samples taken: 14978</code></pre>
+print("Number of samples taken:", round(ebs.get_num_samples()))</code></pre>
+        </div>
+        <div class="code-block terminal-output" role="region" aria-labelledby="example-output-caption">
+            <p class="code-caption" id="example-output-caption">Terminal · Example output (values vary between runs)</p>
+            <pre tabindex="0"><samp>Estimated mean: 0.50
+Number of samples taken: 14978</samp></pre>
         </div>
         </section>
+        <a class="back-to-top" href="#top"><span aria-hidden="true">↑</span> Back to top</a>
     </main>
     <footer class="site-footer">
         <span>Uğur Tepe’s personal website</span>
