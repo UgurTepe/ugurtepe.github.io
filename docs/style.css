@@ -264,7 +264,7 @@ img { max-width: 100%; height: auto; }
 .terminal-output samp { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875rem; line-height: 1.75; }
 .back-to-top {
     position: absolute;
-    top: 0.5px;
+    top: 1px;
     left: 50%;
     transform: translate(-50%, -50%);
     display: inline-flex;
@@ -367,7 +367,7 @@ img { max-width: 100%; height: auto; }
     position: relative;
     display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.25rem 1rem;
     margin-top: 2rem; padding: 1rem 0 1.5rem;
-    background: var(--divider-spectrum) top left / 200% 1px no-repeat;
+    background: var(--divider-spectrum) top left / 200% 2px no-repeat;
     color: var(--muted); font-size: 0.75rem;
 }
 .footer-clock {
