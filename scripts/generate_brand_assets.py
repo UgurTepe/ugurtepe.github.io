@@ -1,7 +1,6 @@
-"""Render the site's vector-style cat mark and social card (requires Pillow)."""
+"""Render the site's PNG favicon and social card from favicon.ico (requires Pillow)."""
 
 from pathlib import Path
-import math
 import random
 
 from PIL import Image, ImageDraw, ImageFont
@@ -25,34 +24,12 @@ def font(size, bold=False):
     raise FileNotFoundError("Install Georgia or DejaVu Serif to render the card.")
 
 
-def cat(draw, x, y, size, width):
-    # Simple, deliberately bold geometry stays recognizable at favicon sizes.
-    outline = [(11, 28), (10, 8), (25, 18), (39, 18), (54, 8), (53, 28)]
-    outline += [
-        (32 + 23 * math.cos(t), 32 + 23 * math.sin(t))
-        for t in [i * math.pi / 60 for i in range(0, 61)]
-    ]
-    outline += [(11, 28)]
-    scale = size / 64
-    points = [(x + a * scale, y + b * scale) for a, b in outline]
-    draw.line(points, fill=CREAM, width=width, joint="curve")
-    for a in [23, 41]:
-        draw.ellipse(
-            (x + (a - 2) * scale, y + 30 * scale,
-             x + (a + 2) * scale, y + 34 * scale), fill=CREAM
-        )
-    draw.polygon(
-        [(x + a * scale, y + b * scale) for a, b in [(29, 39), (35, 39), (32, 43)]],
-        fill="#e700fc",
-    )
-
-
 def main():
+    # Pillow opens the largest available ICO size. Keep the source file untouched.
+    with Image.open(ROOT / "docs" / "favicon.ico") as source:
+        icon = source.convert("RGBA")
     ASSETS.mkdir(exist_ok=True)
-    icon = Image.new("RGB", (256, 256), "#08080c")
-    cat(ImageDraw.Draw(icon), 0, 0, 256, 13)
     icon.resize((64, 64), Image.Resampling.LANCZOS).save(ASSETS / "favicon.png")
-    icon.save(ROOT / "docs" / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
 
     # Work at twice the output resolution for clean lines and typography.
     scale = 2
@@ -76,10 +53,11 @@ def main():
     text(76, 380, "Quantum information", 28)
     text(76, 520, "ugurtepe.de", 22, MUTED)
 
-    # The same cat mark links the browser tab and shared-link preview.
+    # Reuse the existing psi icon in the shared-link preview, preserving transparency.
     draw.ellipse((825 * scale, 166 * scale, 1115 * scale, 456 * scale),
                  outline="#38352f", width=scale)
-    cat(draw, 842 * scale, 186 * scale, 256 * scale, 7 * scale)
+    mark = icon.resize((256 * scale, 256 * scale), Image.Resampling.LANCZOS)
+    card.paste(mark, (842 * scale, 186 * scale), mark)
     for x, y, color in [(1075, 163, "#e700fc"), (850, 440, "#f4c452")]:
         draw.ellipse(((x - 5) * scale, (y - 5) * scale,
                       (x + 5) * scale, (y + 5) * scale), fill=color)
@@ -89,7 +67,7 @@ def main():
         draw.rectangle((i * 200 * scale, 606 * scale,
                         (i + 1) * 200 * scale, 609 * scale), fill=color)
     card.resize((1200, 630), Image.Resampling.LANCZOS).save(ASSETS / "social-preview.png")
-    print("Generated favicon.png, favicon.ico, and social-preview.png (1200 × 630).")
+    print("Generated favicon.png and social-preview.png (1200 × 630) from favicon.ico.")
 
 
 if __name__ == "__main__":
