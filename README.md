@@ -4,7 +4,6 @@
 
 - `docs/`: current website.
 - `docs/js/`: site JavaScript, including the cat, footer link and clock, contact validation, email copying, and MathJax configuration.
-- `scripts/`: tools for generating favicon and social-preview assets.
 - `old design/`: previous design and backups.
 
 Navigation icons are from [Pixelarticons](https://github.com/halfmage/pixelarticons) by Gerrit Halfmann. The original SVGs, MIT license, and source revision are in `docs/icons/pixelarticons/`.
