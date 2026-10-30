@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="smooth-scroll">
 
 <head>
     <meta charset="utf-8">
@@ -18,10 +18,10 @@
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Uğur Tepe - condensed matter physics, topological quantum computing, and quantum information, with a cat against a starfield.">
+    <meta property="og:image:alt" content="Uğur Tepe - condensed matter physics, topological quantum computing, and quantum information, with a psi symbol against a starfield.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://ugurtepe.de/images/social-preview.png">
-    <meta name="twitter:image:alt" content="Uğur Tepe - condensed matter physics, topological quantum computing, and quantum information, with a cat against a starfield.">
+    <meta name="twitter:image:alt" content="Uğur Tepe - condensed matter physics, topological quantum computing, and quantum information, with a psi symbol against a starfield.">
     <meta name="twitter:title" content="Uğur Tepe | Empirical Bernstein Algorithm in Python">
     <meta name="twitter:description" content="Python code by Uğur Tepe for the empirical Bernstein stopping rule, used to estimate quantum expectation values with fewer measurement samples.">
     <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
@@ -29,9 +29,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap">
-    <link rel="stylesheet" href="style.css?v=28">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-tomorrow.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.css">
+    <link rel="stylesheet" href="style.css?v=85">
+    <script defer src="js/back-to-top.js?v=2"></script>
+    <script defer src="js/cat.js?v=1"></script>
+    <script defer src="js/clock.js?v=1"></script>
+    <script defer src="js/copy-email.js?v=2"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
@@ -57,9 +61,7 @@
     </script>
 </head>
 
-<body>
-    <div class="space-galaxy" aria-hidden="true"></div>
-    <div class="space-nebula" aria-hidden="true"></div>
+<body id="top">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <nav aria-label="Primary">
         <div class="nav-links">
@@ -72,7 +74,7 @@
     <hr>
     <main class="page-content" id="main-content">
         <header class="page-intro">
-        <a class="linkimage" href="https://w.wiki/5Dis" target="_blank" rel="noopener" aria-describedby="cat-equation">
+        <div class="cat-interaction" tabindex="0" role="group" aria-label="Schrödinger's cat: hover or focus to measure" aria-describedby="cat-equation">
             <img src="images/cat.png?v=2" class="img1 cat-unmeasured" alt="Schrödinger's cat in a superposition" width="545" height="545">
             <img src="images/cat_dead.png" class="img1 cat-measured" alt="The measured cat in the dead state" width="545" height="545">
             <span class="cat-equation" id="cat-equation">
@@ -93,9 +95,10 @@
                     </math>
                 </span>
             </span>
-        </a>
-        <h1>Details on EBS Code</h1>
-        <p class="intro-description">This is a brief introduction to my implementation of the EBS algorithm. More details are available on
+            <span class="cat-hint" aria-hidden="true"><span class="cat-hint-hover">hover over me</span><span class="cat-hint-touch">click me</span></span>
+        </div>
+        <h1>Empirical Bernstein Algorithm in Python</h1>
+        <p class="intro-description">This is my Python implementation of the empirical Bernstein stopping rule (EBS) for adaptive estimation of quantum expectation values. More details are available on
             <a class="link" href="https://github.com/UgurTepe/EmpiricalBernsteinAlgorithm" target="_blank"
                 rel="noopener">GitHub<img src="images/external-link.png" alt="" width="12" height="12"></a>.</p>
         <p class="intro-bio">The implementation processes samples one at a time and checks a stopping condition based on the data collected so far.
@@ -103,13 +106,14 @@
         </header>
         <section class="content-section article-content" aria-labelledby="implementation-heading">
         <h2 id="implementation-heading">Implementation</h2>
+        <p>The research context is explained in my <a class="link" href="about_thesis.html">bachelor's thesis on quantum expectation value estimation</a>.</p>
         <p>The Python example below samples a random variable from the uniform distribution U(0, 1).</p>
         <p>The usage is simple:</p>
         <ul>
-            <li class='list_item'>Import the class</li>
-            <li class='list_item'>Initialise the EBS class</li>
-            <li class='list_item'>Feed samples into EBS until the stopping condition is met</li>
-            <li class='list_item'>Return the estimate</li>
+            <li>Import the class</li>
+            <li>Initialise the EBS class</li>
+            <li>Feed samples into EBS until the stopping condition is met</li>
+            <li>Return the estimate</li>
         </ul>
 
         <p>This version of EBS uses an <b>absolute</b> accuracy target, which is better suited than a relative accuracy target
@@ -131,19 +135,24 @@ while ebs.cond_check():
     ebs.add_sample(np.random.uniform(a, b))
 
 print("Estimated mean:", ebs.get_estimate())
-print("Number of samples taken:", round(ebs.get_num_samples()))
-# Example output (values vary between runs):
-# Estimated mean: 0.50
-# Number of samples taken: 14978</code></pre>
+print("Number of samples taken:", round(ebs.get_num_samples()))</code></pre>
+        </div>
+        <div class="code-block terminal-output" role="region" aria-labelledby="example-output-caption">
+            <p class="code-caption" id="example-output-caption">Terminal · Example output (values vary between runs)</p>
+            <pre tabindex="0"><samp>Estimated mean: 0.50
+Number of samples taken: 14978</samp></pre>
         </div>
         </section>
     </main>
     <footer class="site-footer">
-        <span>Uğur Tepe’s personal website</span>
-        <ul class="footer-links" aria-label="CV and contact links" role="list">
+        <a class="back-to-top" href="#top" hidden><span aria-hidden="true">↑</span> Back to top <span aria-hidden="true">↑</span></a>
+        <time class="footer-clock" aria-live="off" title="Central European time"><span class="clock-date"></span><span aria-hidden="true"> · </span><span class="clock-time"></span></time>
+        <ul class="footer-links" aria-label="CV, contact, and research profiles" role="list">
             <li><a class="pdf-link" href="files/CV_Academic.pdf" target="_blank" rel="noopener" aria-label="Academic CV (PDF, opens in a new tab)">CV</a></li>
-            <li><a class="link" href="mailto:ugur.tepe@hhu.de">Email</a></li>
+            <li><button class="link copy-email" type="button" data-email="ugur.tepe@hhu.de" aria-label="Copy email address: ugur.tepe@hhu.de" title="Copy email address">Email</button></li>
             <li><a class="link" href="https://github.com/UgurTepe" target="_blank" rel="noopener">GitHub<img src="images/external-link.png" alt="" width="12" height="12"></a></li>
+            <li><a class="link" href="https://orcid.org/0009-0006-2486-6046" target="_blank" rel="noopener">ORCID<img src="images/external-link.png" alt="" width="12" height="12"></a></li>
+            <li><a class="link" href="https://scholar.google.com/citations?user=4BcqRzUAAAAJ&amp;hl=de" target="_blank" rel="noopener">Google Scholar<img src="images/external-link.png" alt="" width="12" height="12"></a></li>
         </ul>
     </footer>
 </body>

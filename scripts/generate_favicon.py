@@ -65,7 +65,7 @@ def generate_favicon():
     scale = size / 128 * 0.88
     inset = size * 0.06
     SVGPath(
-        ROOT / "docs" / "icons" / "ket-psi.svg",
+        ROOT / "scripts" / "data" / "ket-psi.svg",
         transform=(scale, 0, 0, scale, inset, inset),
     ).draw(IconPen(draw, scale))
 

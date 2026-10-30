@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="smooth-scroll">
 
 <head>
     <meta charset="utf-8">
@@ -18,10 +18,10 @@
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Uğur Tepe - condensed matter physics, topological quantum computing, and quantum information, with a cat against a starfield.">
+    <meta property="og:image:alt" content="Uğur Tepe - condensed matter physics, topological quantum computing, and quantum information, with a psi symbol against a starfield.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://ugurtepe.de/images/social-preview.png">
-    <meta name="twitter:image:alt" content="Uğur Tepe - condensed matter physics, topological quantum computing, and quantum information, with a cat against a starfield.">
+    <meta name="twitter:image:alt" content="Uğur Tepe - condensed matter physics, topological quantum computing, and quantum information, with a psi symbol against a starfield.">
     <meta name="twitter:title" content="Uğur Tepe | Quantum Computing Bachelor&#x27;s Thesis">
     <meta name="twitter:description" content="Uğur Tepe&#x27;s bachelor&#x27;s thesis on adaptive quantum expectation value estimation with the empirical Bernstein stopping rule, with a summary and PDF.">
     <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
@@ -29,19 +29,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap">
-    <link rel="stylesheet" href="style.css?v=28">
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['\\(', '\\)']],
-                displayMath: [['\\[', '\\]']],
-                processEscapes: true
-            },
-            options: {
-                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-            }
-        };
-    </script>
+    <link rel="stylesheet" href="style.css?v=85">
+    <script defer src="js/back-to-top.js?v=2"></script>
+    <script defer src="js/cat.js?v=1"></script>
+    <script defer src="js/clock.js?v=1"></script>
+    <script defer src="js/copy-email.js?v=2"></script>
+    <script defer src="js/mathjax-config.js?v=1"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
     <script type="application/ld+json">
     {
@@ -65,9 +58,7 @@
     </script>
 </head>
 
-<body>
-    <div class="space-galaxy" aria-hidden="true"></div>
-    <div class="space-nebula" aria-hidden="true"></div>
+<body id="top">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <nav aria-label="Primary">
         <div class="nav-links">
@@ -80,7 +71,7 @@
     <hr>
     <main class="page-content" id="main-content">
         <header class="page-intro">
-        <a class="linkimage" href="https://w.wiki/5Dis" target="_blank" rel="noopener" aria-describedby="cat-equation">
+        <div class="cat-interaction" tabindex="0" role="group" aria-label="Schrödinger's cat: hover or focus to measure" aria-describedby="cat-equation">
             <img src="images/cat.png?v=2" class="img1 cat-unmeasured" alt="Schrödinger's cat in a superposition" width="545" height="545">
             <img src="images/cat_dead.png" class="img1 cat-measured" alt="The measured cat in the dead state" width="545" height="545">
             <span class="cat-equation" id="cat-equation">
@@ -101,16 +92,18 @@
                     </math>
                 </span>
             </span>
-        </a>
-        <h1>About my Thesis</h1>
-        <p class="intro-description">The title of my bachelor's thesis was "Adaptively measuring quantum expectation values using the empirical
+            <span class="cat-hint" aria-hidden="true"><span class="cat-hint-hover">hover over me</span><span class="cat-hint-touch">click me</span></span>
+        </div>
+        <h1>Quantum Computing Bachelor's Thesis</h1>
+        <p class="intro-description">My bachelor's thesis was titled "Adaptively measuring quantum expectation values using the empirical
             Bernstein stopping rule".</p>
         <p class="intro-bio">The aim was to estimate quantum expectation values accurately while keeping the number of measurement shots low.
             Rather than fixing the sample count in advance, the stopping rule uses the observed data to decide when enough measurements have been collected.</p>
         </header>
         <section class="content-section article-content" aria-labelledby="overview-heading">
         <h2 id="overview-heading">Overview</h2>
-        <p>We studied an application of the <a class="pdf-link" href="files/ebs_mnih.pdf" target="_blank" rel="noopener">empirical
+        <p>This thesis was advised by Alexander Gresch and Martin Kliesch. The accompanying <a class="link" href="code.html">empirical Bernstein algorithm in Python</a> implements the adaptive sampling method.</p>
+        <p>The thesis explored an application of the <a class="pdf-link" href="files/ebs_mnih.pdf" target="_blank" rel="noopener">empirical
             Bernstein stopping rule</a><sup><a class="link footnote-reference" href="#reference-1" aria-label="Reference 1">[1]</a></sup>
             (EBS) in quantum computing. See the reference below for the original paper. <span class="file-meta">PDF · 399 kB</span></p>
         <div class="math-display" tabindex="0" role="region" aria-label="Empirical Bernstein bound">
@@ -125,22 +118,36 @@
             confidence parameter.</p>
         <p>The goal was to estimate quantum expectation values with a required accuracy \(\epsilon\) and confidence
             \(1 - \delta\) while minimizing the number of measurement shots.</p>
-        <p>The figure below compares EBS with a sampling bound based on Hoeffding's inequality for estimating the ground-state
-            energy of NH<sub>3</sub>. We set the accuracy \(\epsilon\) to chemical accuracy, i.e. \(0.0016\,\mathrm{Ha}\). In this example,
-            EBS requires fewer samples to reach the target accuracy.</p>
-        <figure class="thesis-figure">
-            <img src="images/ebs_example.png" class="img2" width="559" height="409"
-                alt="Comparison of sample counts for EBS and a Hoeffding bound when estimating the ground-state energy of ammonia">
-        </figure>
+        <p>Numerical experiments used EBS to estimate ground-state energies of molecule-inspired Hamiltonians. The plots below show how
+            accuracy improves with additional measurements and how the measurement cost varies across molecules and qubit
+            mappings. In these examples, EBS reaches the target accuracy with fewer measurement rounds than required by
+            Hoeffding's guarantee.</p>
+        <div class="thesis-figures">
+            <figure class="thesis-figure" id="accuracy-scaling">
+                <img src="images/ebs_accuracy_scaling.svg" class="img2" width="559" height="409"
+                    alt="Reliable accuracy versus total measurement rounds for a BeH2-inspired Hamiltonian in Jordan–Wigner encoding. Green EBS asterisks have a fitted exponent of 0.68 ± 0.02; red single-shot estimator dots have exponent 0.5. The Bernstein bound is also shown.">
+                <figcaption><strong>Accuracy scaling.</strong> Ground-state energy estimation for a BeH<sub>2</sub>-inspired
+                    Hamiltonian. The shaded region marks chemical accuracy.</figcaption>
+            </figure>
+            <figure class="thesis-figure" id="molecule-comparison">
+                <img src="images/ebs_molecule_comparison.svg" class="img2" width="559" height="409"
+                    alt="Measurement rounds to reach chemical accuracy for molecule-inspired Hamiltonians: EBS with Jordan–Wigner, Bravyi–Kitaev, and parity mappings versus Hoeffding's mapping-independent guarantee. Systems are H2 with 4 and 8 qubits, LiH with 12, BeH2 and H2O with 14, and NH3 with 16.">
+                <figcaption><strong>Measurement cost.</strong> Rounds needed to reach chemical accuracy across molecules and
+                    qubit mappings, compared with Hoeffding's guarantee. \(n\) is the number of qubits.</figcaption>
+            </figure>
+        </div>
         <p class="footnote" id="reference-1"><span class="footnote-box">[1] Mnih et al., 2008</span></p>
         </section>
     </main>
     <footer class="site-footer">
-        <span>Uğur Tepe’s personal website</span>
-        <ul class="footer-links" aria-label="CV and contact links" role="list">
+        <a class="back-to-top" href="#top" hidden><span aria-hidden="true">↑</span> Back to top <span aria-hidden="true">↑</span></a>
+        <time class="footer-clock" aria-live="off" title="Central European time"><span class="clock-date"></span><span aria-hidden="true"> · </span><span class="clock-time"></span></time>
+        <ul class="footer-links" aria-label="CV, contact, and research profiles" role="list">
             <li><a class="pdf-link" href="files/CV_Academic.pdf" target="_blank" rel="noopener" aria-label="Academic CV (PDF, opens in a new tab)">CV</a></li>
-            <li><a class="link" href="mailto:ugur.tepe@hhu.de">Email</a></li>
+            <li><button class="link copy-email" type="button" data-email="ugur.tepe@hhu.de" aria-label="Copy email address: ugur.tepe@hhu.de" title="Copy email address">Email</button></li>
             <li><a class="link" href="https://github.com/UgurTepe" target="_blank" rel="noopener">GitHub<img src="images/external-link.png" alt="" width="12" height="12"></a></li>
+            <li><a class="link" href="https://orcid.org/0009-0006-2486-6046" target="_blank" rel="noopener">ORCID<img src="images/external-link.png" alt="" width="12" height="12"></a></li>
+            <li><a class="link" href="https://scholar.google.com/citations?user=4BcqRzUAAAAJ&amp;hl=de" target="_blank" rel="noopener">Google Scholar<img src="images/external-link.png" alt="" width="12" height="12"></a></li>
         </ul>
     </footer>
 </body>
