@@ -398,7 +398,8 @@ img { max-width: 100%; height: auto; }
     background: var(--divider-spectrum) top left / 200% 2px no-repeat;
     color: var(--muted); font-size: 0.75rem;
 }
-.footer-clock {
+.footer-status { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 0.5rem 1rem; }
+.footer-clock, .visitor-counter {
     display: inline-flex;
     flex: 0 0 auto;
     align-items: baseline;
@@ -414,6 +415,10 @@ img { max-width: 100%; height: auto; }
 .footer-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 0 1.25rem; margin: 0 0 0 auto; padding: 0; list-style: none; }
 .footer-links li { margin: 0; padding: 0; }
 .footer-links a, .footer-links .copy-email { display: inline-flex; align-items: center; min-height: 44px; }
+.visitor-counter {
+    gap: 0.4rem;
+}
+.visitor-number { color: var(--highlight); font-variant-numeric: tabular-nums; }
 body > hr, .site-footer {
     background-repeat: repeat-x;
     animation: divider-flow var(--divider-duration) linear infinite;
