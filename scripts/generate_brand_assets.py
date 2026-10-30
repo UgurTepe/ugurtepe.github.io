@@ -1,10 +1,12 @@
-"""Render the site's vector-style cat mark and social card (requires Pillow)."""
+"""Render the site's favicon and social card (requires Pillow and fonttools)."""
 
 from pathlib import Path
 import math
 import random
 
 from PIL import Image, ImageDraw, ImageFont
+
+from generate_favicon import generate_favicon
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -49,10 +51,7 @@ def cat(draw, x, y, size, width):
 
 def main():
     ASSETS.mkdir(exist_ok=True)
-    icon = Image.new("RGB", (256, 256), "#08080c")
-    cat(ImageDraw.Draw(icon), 0, 0, 256, 13)
-    icon.resize((64, 64), Image.Resampling.LANCZOS).save(ASSETS / "favicon.png")
-    icon.save(ROOT / "docs" / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
+    generate_favicon()
 
     # Work at twice the output resolution for clean lines and typography.
     scale = 2
@@ -76,7 +75,7 @@ def main():
     text(76, 380, "Quantum information", 28)
     text(76, 520, "ugurtepe.de", 22, MUTED)
 
-    # The same cat mark links the browser tab and shared-link preview.
+    # Retain the cat mark on the shared-link preview.
     draw.ellipse((825 * scale, 166 * scale, 1115 * scale, 456 * scale),
                  outline="#38352f", width=scale)
     cat(draw, 842 * scale, 186 * scale, 256 * scale, 7 * scale)
