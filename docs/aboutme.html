@@ -28,7 +28,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap">
-    <link rel="stylesheet" href="style.css?v=85">
+    <link rel="stylesheet" href="style.css?v=87">
     <script defer src="js/back-to-top.js?v=2"></script>
     <script defer src="js/cat.js?v=1"></script>
     <script defer src="js/clock.js?v=1"></script>
@@ -236,7 +236,10 @@
             <textarea id="contact-message" name="message" rows="6" maxlength="10000" aria-describedby="contact-message-error" required></textarea>
             <span class="form-error" id="contact-message-error" aria-live="polite" hidden></span>
         </div>
-        <button class="contact-submit" type="submit">Send message</button>
+        <div class="contact-form-actions">
+            <button class="contact-submit" type="submit">Send message</button>
+            <p class="contact-form-credit">Powered by <a class="link" href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit</a>.</p>
+        </div>
     </form>
     </section>
     </main>
