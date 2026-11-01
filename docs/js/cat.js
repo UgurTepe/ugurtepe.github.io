@@ -5,7 +5,16 @@
 
             cat.classList.add('is-measured', 'has-measured');
             window.setTimeout(() => {
-                cat.classList.remove('is-measured');
+                // With alive = |0> and dead = |1>, U = HX prepares |+>.
+                // Apply X first: H alone would prepare the minus state from |dead>.
+                cat.classList.add('is-resetting', 'is-applying-x');
+                window.setTimeout(() => {
+                    cat.classList.remove('is-applying-x');
+                    cat.classList.add('is-applying-h');
+                    window.setTimeout(() => {
+                        cat.classList.remove('is-measured', 'is-resetting', 'is-applying-h');
+                    }, 1500);
+                }, 1500);
             }, 10000);
         }
 

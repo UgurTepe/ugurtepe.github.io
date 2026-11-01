@@ -207,7 +207,7 @@ li::marker { color: var(--muted); font-size: 0.8em; }
 .publication-separator { margin-inline: 0.65rem; }
 .publication-authors { color: #ffffff; }
 img { max-width: 100%; height: auto; }
-/* The image and normalized state collapse together for ten seconds after measurement. */
+/* Measurement is followed by state preparation: X, then H, restores the plus state. */
 .cat-interaction { position: relative; display: block; float: right; width: 178px; margin: 0.15rem 1.25rem 1rem 2rem; color: var(--muted); text-decoration: none; }
 .img1 { display: block; width: 100%; max-width: 152px; margin-inline: auto; opacity: 0.88; }
 /* Shared midnight-purple panels for mathematics, code, output, and contact. */
@@ -246,10 +246,24 @@ img { max-width: 100%; height: auto; }
 }
 .cat-interaction.has-measured .cat-hint { display: none; }
 .cat-measured { display: none; }
+.cat-alive, .cat-reset { display: none; }
 .cat-interaction.is-measured .cat-unmeasured { display: none; }
 .cat-interaction.is-measured .cat-measured { display: block; }
 .cat-interaction.is-measured .cat-equation { color: var(--highlight); }
 .cat-interaction.is-measured .img1 { opacity: 1; }
+.cat-interaction.is-resetting .cat-equation > .cat-measured { display: none; }
+.cat-interaction.is-resetting .cat-reset { display: grid; justify-items: center; gap: 0.35rem; }
+.cat-interaction.is-resetting .img1.cat-measured { display: none; }
+.cat-interaction.is-applying-x .cat-alive { display: block; }
+.cat-interaction.is-applying-h .img1.cat-unmeasured { display: block; }
+.cat-reset > math { display: none; }
+.cat-interaction.is-applying-x .cat-reset-x,
+.cat-interaction.is-applying-h .cat-reset-h { display: block; }
+.cat-circuit { display: inline-flex; align-items: center; color: var(--muted); font: 0.6875rem/1 var(--font-mono); }
+.cat-gate { display: grid; place-items: center; width: 1.25rem; height: 1.25rem; border: 1px solid var(--line); background: var(--background); }
+.cat-gate-wire { width: 1.5rem; border-top: 1px solid var(--line); }
+.cat-interaction.is-applying-x .cat-gate-x,
+.cat-interaction.is-applying-h .cat-gate-h { border-color: var(--highlight); color: var(--highlight); }
 /* Avoid an extra transparency layer when painting the PNG on touch screens. */
 @media (hover: none) {
     .cat-hint-hover { display: none; }
@@ -449,6 +463,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .intro-description { font-size: 0.95rem; }
     h2 { font-size: 1.125rem; }
     .content-section > h2 { font-size: 1.25rem; }
+    .research-publications { display: flex; flex-direction: column; }
+    .research-publications > [aria-labelledby="publications-heading"] { order: -1; }
     .research-list { display: block; }
     .research-list li + li { margin-top: 0.4rem; }
     .thesis-figures { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }

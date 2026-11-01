@@ -28,11 +28,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap">
-    <link rel="stylesheet" href="style.css?v=90">
+    <link rel="stylesheet" href="style.css?v=96">
     <script defer src="js/back-to-top.js?v=2"></script>
-    <script defer src="js/cat.js?v=1"></script>
+    <script defer src="js/cat.js?v=5"></script>
     <script defer src="js/clock.js?v=1"></script>
-    <script defer src="js/visitor-counter.js?v=3"></script>
+    <script defer src="js/visitor-counter.js?v=4"></script>
     <script defer src="js/contact-form.js?v=1"></script>
     <script defer src="js/copy-email.js?v=2"></script>
     <script type="application/ld+json">
@@ -133,7 +133,8 @@
     <div class="cat-interaction" tabindex="0" role="group" aria-label="Schrödinger's cat: hover or focus to measure" aria-describedby="cat-equation">
             <img src="images/cat.png?v=2" class="img1 cat-unmeasured" alt="Schrödinger's cat in a superposition" width="545" height="545">
             <img src="images/cat_dead.png" class="img1 cat-measured" alt="The measured cat in the dead state" width="545" height="545">
-            <span class="cat-equation" id="cat-equation">
+            <img src="images/cat.png?v=2" class="img1 cat-alive" alt="The cat in the alive state after applying X" width="545" height="545">
+            <span class="cat-equation" id="cat-equation" aria-live="polite" aria-atomic="true">
                 <span class="cat-unmeasured">
                     <math xmlns="http://www.w3.org/1998/Math/MathML" aria-label="Psi equals the sum of alive and dead, divided by the square root of two">
                         <mrow>
@@ -148,6 +149,15 @@
                 <span class="cat-measured">
                     <math xmlns="http://www.w3.org/1998/Math/MathML" aria-label="After measurement, psi equals the dead state">
                         <mrow><mo stretchy="false">|</mo><mi>ψ</mi><mo stretchy="false">⟩</mo><mo>=</mo><mo stretchy="false">|</mo><mtext>dead</mtext><mo stretchy="false">⟩</mo></mrow>
+                    </math>
+                </span>
+                <span class="cat-reset" title="State preparation with U = HX: X acts first. Alive is |0〉; dead is |1〉.">
+                    <span class="cat-circuit" aria-hidden="true"><span class="cat-gate cat-gate-x">X</span><span class="cat-gate-wire"></span><span class="cat-gate cat-gate-h">H</span></span>
+                    <math class="cat-reset-x" xmlns="http://www.w3.org/1998/Math/MathML" aria-label="Apply X: the dead state becomes the alive state">
+                        <mrow><mi mathvariant="normal">X</mi><mo stretchy="false">|</mo><mtext>dead</mtext><mo stretchy="false">⟩</mo><mo>=</mo><mo stretchy="false">|</mo><mtext>alive</mtext><mo stretchy="false">⟩</mo></mrow>
+                    </math>
+                    <math class="cat-reset-h" xmlns="http://www.w3.org/1998/Math/MathML" aria-label="Apply H: the alive state becomes psi, the equal superposition of alive and dead">
+                        <mrow><mi mathvariant="normal">H</mi><mo stretchy="false">|</mo><mtext>alive</mtext><mo stretchy="false">⟩</mo><mo>=</mo><mo stretchy="false">|</mo><mi>ψ</mi><mo stretchy="false">⟩</mo></mrow>
                     </math>
                 </span>
             </span>
