@@ -3,12 +3,11 @@
     if (!counter) return;
 
     const number = counter.querySelector('.visitor-number');
-    const storageKey = 'ugurtepe-visit-number-v1';
-    const endpoint = 'https://counterapi.com/api/ugurtepe.de/view/site-visits';
+    const endpoint = 'https://abacus.jasoncameron.dev/hit/ugurtepe.de/page-hits';
     const productionHosts = ['ugurtepe.de', 'www.ugurtepe.de', 'ugurtepe.github.io'];
 
     function showVisit(value) {
-        number.textContent = `#${value}`;
+        number.textContent = value.toLocaleString('en-US');
     }
 
     function validVisit(value) {
@@ -17,19 +16,9 @@
 
     // Keep local previews from contributing to the public counter.
     if (!productionHosts.includes(window.location.hostname)) {
-        number.textContent = '#\u2014';
-        counter.title = 'Visitor counter preview; local visits are not counted.';
+        number.textContent = '\u2014';
+        counter.title = 'Page counter preview; local page views are not counted.';
         return;
-    }
-
-    try {
-        const savedVisit = Number(window.sessionStorage.getItem(storageKey));
-        if (validVisit(savedVisit)) {
-            showVisit(savedVisit);
-            return;
-        }
-    } catch {
-        // Counting still works when browser storage is unavailable.
     }
 
     async function countVisit() {
@@ -48,14 +37,9 @@
             if (!validVisit(result.value)) throw new Error('Invalid visit number');
 
             showVisit(result.value);
-            try {
-                window.sessionStorage.setItem(storageKey, String(result.value));
-            } catch {
-                // The number remains visible even if storage is blocked.
-            }
         } catch {
-            number.textContent = '#\u2014';
-            counter.title = 'Visitor counter unavailable';
+            number.textContent = '\u2014';
+            counter.title = 'Page view counter unavailable';
         } finally {
             window.clearTimeout(timeout);
         }
