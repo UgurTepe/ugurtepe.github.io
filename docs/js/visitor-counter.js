@@ -17,7 +17,7 @@
     // Keep local previews from contributing to the public counter.
     if (!productionHosts.includes(window.location.hostname)) {
         number.textContent = '\u2014';
-        counter.title = 'Page counter preview; local page views are not counted.';
+        counter.title = 'Open download statistics.';
         return;
     }
 
@@ -39,7 +39,7 @@
             showVisit(result.value);
         } catch {
             number.textContent = '\u2014';
-            counter.title = 'Page view counter unavailable';
+            counter.title = 'Page view counter unavailable. Open download statistics.';
         } finally {
             window.clearTimeout(timeout);
         }

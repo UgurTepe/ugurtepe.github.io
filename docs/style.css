@@ -431,8 +431,45 @@ img { max-width: 100%; height: auto; }
 .footer-links a, .footer-links .copy-email { display: inline-flex; align-items: center; min-height: 44px; }
 .visitor-counter {
     gap: 0.4rem;
+    text-decoration: none;
 }
+.visitor-counter:is(:hover, :focus-visible) { color: var(--highlight); }
 .visitor-number { color: var(--highlight); font-variant-numeric: tabular-nums; }
+/* Download statistics use the same document lists and text links as the other pages. */
+.download-sort { color: var(--muted); font-size: 0.875rem; }
+.download-separator { margin-inline: 0.35rem; }
+.download-action {
+    appearance: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+}
+.download-action[aria-pressed="true"] { color: var(--highlight); text-decoration-color: currentColor; }
+.download-action:disabled { opacity: 0.6; cursor: default; }
+.download-tools { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1.25rem; margin-bottom: 1rem; font-size: 0.875rem; }
+.download-search { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem; max-width: 100%; }
+.download-search label { color: var(--muted); }
+.download-search input {
+    appearance: none;
+    width: 18ch;
+    max-width: 100%;
+    min-width: 0;
+    padding: 0.1rem 0.25rem;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    background: var(--background);
+    color: var(--text);
+    font: inherit;
+}
+.download-search input:is(:hover, :focus-visible) { border-bottom-color: var(--highlight); }
+.download-list > li { overflow-wrap: anywhere; }
+.download-list .file-meta { white-space: normal; }
+.download-status { margin: 0.75rem 0; color: var(--muted); font-size: 0.75rem; }
+.download-status #download-results:not([hidden])::before { content: " · "; }
 body > hr, .site-footer {
     background-repeat: repeat-x;
     animation: divider-flow var(--divider-duration) linear infinite;
