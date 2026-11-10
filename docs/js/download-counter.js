@@ -55,11 +55,6 @@
         }
         if (!file) return;
 
-        // Also record the click as a GoatCounter event; Abacus stays the source for the statistics page.
-        try {
-            window.goatcounter?.count?.({path: `download-${file.path}`, title: file.title, event: true});
-        } catch {}
-
         // Never hold up the file, retry an increment, or change normal link behaviour.
         request('hit', file.key).then((value) => {
             document.dispatchEvent(new CustomEvent('download-counted', {
